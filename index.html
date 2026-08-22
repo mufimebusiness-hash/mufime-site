@@ -33,6 +33,23 @@
   a { color: inherit; }
   img { max-width: 100%; display: block; }
 
+  em.accent { font-style: italic; color: var(--crimson); }
+  .display em.accent { font-style: normal; display: inline-block; transform: skewX(-8deg); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-1 { transition-delay: 0.08s; }
+  .reveal-2 { transition-delay: 0.16s; }
+  .reveal-3 { transition-delay: 0.24s; }
+  .reveal-4 { transition-delay: 0.32s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   .display {
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
@@ -82,8 +99,25 @@
     letter-spacing: 0.6px;
     text-transform: uppercase;
   }
-  nav a { text-decoration: none; color: var(--grey); transition: color 0.15s; }
+  nav a {
+    text-decoration: none;
+    color: var(--grey);
+    transition: color 0.15s;
+    position: relative;
+    padding-bottom: 3px;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--crimson);
+    transition: width 0.25s ease;
+  }
   nav a:hover { color: var(--white); }
+  nav a:hover::after { width: 100%; }
 
   .header-cta {
     background: var(--crimson);
@@ -620,13 +654,13 @@
 
   <section class="hero" id="home">
     <div class="wrap">
-      <span class="hero-tag">Now Streaming</span>
-      <h1 class="display">
+      <span class="hero-tag reveal">Now Streaming</span>
+      <h1 class="display reveal reveal-1">
         <span class="stroke">WE MAKE</span><br>
         <span class="fill-red">VIDEOS</span> THAT HIT
       </h1>
-      <p class="hero-sub">Mufime is a video &amp; content studio — raw ideas, sharp edits, and stories built for the feed. No filler, just the good stuff.</p>
-      <div class="hero-actions">
+      <p class="hero-sub reveal reveal-2">Mufime is a video &amp; content studio — <em class="accent">raw ideas</em>, sharp edits, and stories built for the feed. No filler, just the good stuff.</p>
+      <div class="hero-actions reveal reveal-3">
         <a class="btn-primary" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
           Watch Now
@@ -641,7 +675,7 @@
         </div>
       </div>
 
-      <div class="hero-strip">
+      <div class="hero-strip reveal reveal-4">
         <div class="hero-strip-item"><div class="num display">100K+</div><div class="label">Subscribers</div></div>
         <div class="hero-strip-item"><div class="num display">4</div><div class="label">Videos</div></div>
         <div class="hero-strip-item"><div class="num display">2026</div><div class="label">Est.</div></div>
@@ -663,26 +697,26 @@
 
   <section class="services-section" id="services">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div>
           <span class="eyebrow">What We Do</span>
-          <h2 class="display">Built Different</h2>
+          <h2 class="display">Built <em class="accent">Different</em></h2>
         </div>
         <p>From concept to upload — we handle every part of making content that actually gets watched.</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-item">
+        <div class="service-item reveal reveal-1">
           <div class="idx display">01</div>
           <h3>Video Production</h3>
           <p>Full shoot-to-edit production, built to hold attention from the first second.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item reveal reveal-2">
           <div class="idx display">02</div>
           <h3>Creative Direction</h3>
           <p>Concepts, scripts, and storytelling that give every video a reason to exist.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item reveal reveal-3">
           <div class="idx display">03</div>
           <h3>Content Strategy</h3>
           <p>Short-form, long-form, and everything built for how people actually watch now.</p>
@@ -700,16 +734,16 @@
 
   <section class="videos-section" id="work">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div>
           <span class="eyebrow">Latest Drops</span>
-          <h2 class="display">Featured Videos</h2>
+          <h2 class="display">Featured <em class="accent">Videos</em></h2>
         </div>
         <p>Straight from the channel — hit play and watch on YouTube.</p>
       </div>
 
       <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_1" target="_blank" rel="noopener">
+        <a class="video-card reveal reveal-1" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_1" target="_blank" rel="noopener">
           <div class="fallback-bg"></div>
           <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_1/hqdefault.jpg" alt="" onerror="this.style.display='none'">
           <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -719,7 +753,7 @@
           </div>
         </a>
 
-        <a class="video-card" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_2" target="_blank" rel="noopener">
+        <a class="video-card reveal reveal-2" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_2" target="_blank" rel="noopener">
           <div class="fallback-bg"></div>
           <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_2/hqdefault.jpg" alt="" onerror="this.style.display='none'">
           <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -729,7 +763,7 @@
           </div>
         </a>
 
-        <a class="video-card" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_3" target="_blank" rel="noopener">
+        <a class="video-card reveal reveal-3" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_3" target="_blank" rel="noopener">
           <div class="fallback-bg"></div>
           <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_3/hqdefault.jpg" alt="" onerror="this.style.display='none'">
           <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -739,7 +773,7 @@
           </div>
         </a>
 
-        <a class="video-card" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_4" target="_blank" rel="noopener">
+        <a class="video-card reveal reveal-4" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_4" target="_blank" rel="noopener">
           <div class="fallback-bg"></div>
           <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_4/hqdefault.jpg" alt="" onerror="this.style.display='none'">
           <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
@@ -754,9 +788,9 @@
 
   <section class="cta-band" id="contact">
     <div class="wrap">
-      <span class="eyebrow">Don't Miss Out</span>
-      <h2 class="display">Subscribe To<br>The Movement</h2>
-      <div class="link-row">
+      <span class="eyebrow reveal">Don't Miss Out</span>
+      <h2 class="display reveal reveal-1">Subscribe To<br><em class="accent">The Movement</em></h2>
+      <div class="link-row reveal reveal-2">
         <a class="link-btn primary" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
         <a class="link-btn" href="https://instagram.com/REPLACE_WITH_HANDLE" target="_blank" rel="noopener">Instagram</a>
         <a class="link-btn" href="mailto:mustafaworks786@gmail.com">Email Me</a>
@@ -787,6 +821,21 @@
     const siteNav = document.getElementById('siteNav');
     menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
     siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => siteNav.classList.remove('open')));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
   </script>
 </body>
 </html>
