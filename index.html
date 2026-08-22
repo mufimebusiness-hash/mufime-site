@@ -94,11 +94,51 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;
-    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+    border-radius: 4px;
+    transition: background 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: #ff1a44; transform: translateY(-1px); }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    display: block;
   }
 
   @media (max-width: 860px) {
-    nav { display: none; }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--black-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 6px 0;
+    }
+    nav.open { display: flex; }
+    nav a { padding: 14px 32px; }
+    .menu-toggle { display: flex; }
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 20px 0; }
+    .header-cta { padding: 9px 16px; font-size: 0.7rem; }
+    .logo { font-size: 1.3rem; }
   }
 
   /* Hero */
@@ -168,10 +208,11 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;
-    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-    transition: background 0.15s, transform 0.15s;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(220,20,60,0.3);
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
   }
-  .btn-primary:hover { background: #ff1a44; transform: translateY(-2px); }
+  .btn-primary:hover { background: #ff1a44; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(220,20,60,0.4); }
 
   .hero-socials {
     display: flex;
@@ -217,7 +258,19 @@
   }
   @media (max-width: 700px) {
     .hero-strip { flex-wrap: wrap; }
-    .hero-strip-item { flex: 1 1 50%; }
+    .hero-strip-item { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
+    .hero-strip-item:nth-child(2) { border-right: none; }
+    .hero-strip-item:nth-child(3), .hero-strip-item:nth-child(4) { border-bottom: none; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding-top: 24px; }
+    .hero h1 { margin-bottom: 22px; }
+    .hero-sub { font-size: 0.95rem; }
+    .btn-primary { padding: 15px 26px; font-size: 0.82rem; width: 100%; justify-content: center; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 18px; }
+    .hero-socials { justify-content: center; }
   }
 
   /* Marquee */
@@ -233,13 +286,16 @@
   .marquee-track span {
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: clamp(0.95rem, 2.4vw, 1.3rem);
     letter-spacing: 1px;
-    padding: 16px 30px;
+    padding: 14px 22px;
     color: #fff;
     white-space: nowrap;
   }
   .marquee-track span.dot { color: rgba(0,0,0,0.5); }
+  @media (max-width: 480px) {
+    .marquee-track span { padding: 12px 16px; }
+  }
   @keyframes scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -249,6 +305,9 @@
   .services-section {
     padding: 90px 0;
     border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 480px) {
+    .services-section, .videos-section { padding: 56px 0; }
   }
 
   .section-head {
@@ -293,6 +352,9 @@
     background: var(--black);
     padding: 44px 34px;
     transition: background 0.2s;
+  }
+  @media (max-width: 480px) {
+    .service-item { padding: 32px 22px; }
   }
   .service-item:hover { background: var(--black-soft); }
   .service-item .idx {
@@ -364,14 +426,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
     background: var(--crimson);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    box-shadow: 0 8px 24px rgba(220,20,60,0.45);
     transition: transform 0.2s;
   }
   .video-card .play-circle svg { width: 18px; height: 18px; fill: #fff; margin-left: 2px; }
@@ -436,14 +499,83 @@
     color: var(--white);
     transition: border-color 0.15s, background 0.15s;
   }
+  .link-btn { border-radius: 4px; }
   .link-btn:hover { border-color: var(--crimson); background: rgba(220,20,60,0.08); }
   .link-btn.primary {
     background: var(--crimson);
     border-color: var(--crimson);
     color: #fff;
-    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    box-shadow: 0 10px 30px rgba(220,20,60,0.3);
   }
-  .link-btn.primary:hover { background: #ff1a44; }
+  .link-btn.primary:hover { background: #ff1a44; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(220,20,60,0.4); }
+
+  @media (max-width: 480px) {
+    .link-row { flex-direction: column; align-items: stretch; }
+    .link-btn { justify-content: center; }
+    .cta-band { padding: 70px 0 60px; }
+  }
+
+  /* Sticky follow CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--crimson);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 12px 30px rgba(220,20,60,0.45);
+    transition: transform 0.15s, background 0.15s;
+  }
+  .sticky-cta:hover { background: #ff1a44; transform: translateY(-2px); }
+  @media (max-width: 480px) {
+    .sticky-cta { left: 20px; right: 20px; bottom: 16px; justify-content: center; }
+  }
+
+  /* Mid-page CTA strip */
+  .mid-cta {
+    background: var(--crimson);
+    padding: 34px 0;
+  }
+  .mid-cta .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .mid-cta h3 {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    color: #fff;
+  }
+  .mid-cta .btn-white {
+    background: #fff;
+    color: var(--crimson);
+    padding: 13px 26px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: transform 0.15s;
+  }
+  .mid-cta .btn-white:hover { transform: translateY(-2px); }
+  @media (max-width: 560px) {
+    .mid-cta .wrap { flex-direction: column; text-align: center; }
+  }
 
   footer {
     border-top: 1px solid var(--line);
@@ -470,16 +602,19 @@
 </head>
 <body>
 
-  <div class="wrap">
+  <div class="wrap" style="position: relative;">
     <header>
       <div class="logo">MUFI<span>ME</span></div>
-      <nav>
+      <nav id="siteNav">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#work">Videos</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-cta" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a class="header-cta" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
     </header>
   </div>
 
@@ -555,6 +690,13 @@
       </div>
     </div>
   </section>
+
+  <div class="mid-cta">
+    <div class="wrap">
+      <h3>Don't scroll past — subscribe now.</h3>
+      <a class="btn-white" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe Free</a>
+    </div>
+  </div>
 
   <section class="videos-section" id="work">
     <div class="wrap">
@@ -633,8 +775,18 @@
     </footer>
   </div>
 
+  <a class="sticky-cta" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+    Subscribe
+  </a>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+    menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
+    siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => siteNav.classList.remove('open')));
   </script>
 </body>
 </html>
