@@ -6,10 +6,22 @@
 <title>MUFIME</title>
 <meta name="description" content="Mufime — videos, content, and things worth watching.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Taste Bread HD';
+    src: url('./fonts/Taste-Bread-HD.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Alte Haas Grotesk';
+    src: url('./fonts/AlteHaasGroteskBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --black: #06060a;
     --black-soft: #0d0d14;
@@ -27,7 +39,7 @@
   body {
     background: var(--black);
     color: var(--white);
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Alte Haas Grotesk', system-ui, sans-serif;
     font-weight: 400;
     overflow-x: hidden;
   }
@@ -35,15 +47,34 @@
   a { color: inherit; }
   img { max-width: 100%; display: block; }
 
-  h1, h2, h3, .display-font, .logo, .logo-small {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 800;
+  h1, h2, h3, h4, .display-font, .logo, .logo-small {
+    font-family: 'Taste Bread HD', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
   }
 
+  .stamp {
+    display: inline-block;
+    font-family: 'Taste Bread HD', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    transform: rotate(-3deg);
+  }
+  .stamp-row {
+    display: block;
+    padding: 8px 16px;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    letter-spacing: 0.5px;
+  }
+  .stamp-row.stamp-black { background: #000; color: #fff; border-radius: 6px 6px 0 0; }
+  .stamp-row.stamp-coral { background: var(--coral); color: #fff; border-radius: 0 0 6px 6px; margin-top: 3px; }
+
   em.accent {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Taste Bread HD', sans-serif;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 400;
     background: #000;
     color: #fff;
     display: inline-block;
@@ -165,7 +196,7 @@
     transform: translateX(-50%) translateY(0);
   }
   .dropdown-col h4 {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Alte Haas Grotesk', sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--white);
@@ -281,7 +312,7 @@
   }
 
   .hero h1 {
-    font-weight: 800;
+    font-weight: 400;
     font-size: clamp(2.6rem, 6.8vw, 5.2rem);
     line-height: 1.05;
     letter-spacing: -0.5px;
@@ -514,7 +545,7 @@
     display: block;
   }
   .section-head h2 {
-    font-weight: 800;
+    font-weight: 400;
     font-size: clamp(1.9rem, 4.2vw, 3rem);
     letter-spacing: -0.3px;
   }
@@ -550,8 +581,8 @@
   }
   .service-item:hover { background: var(--black-soft); }
   .service-item .idx {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 800;
+    font-family: 'Taste Bread HD', sans-serif;
+    font-weight: 400;
     font-size: 2rem;
     color: var(--coral-light);
     opacity: 0.7;
@@ -759,7 +790,7 @@
     display: block;
   }
   .cta-band h2 {
-    font-weight: 800;
+    font-weight: 400;
     font-size: clamp(2rem, 5.5vw, 3.6rem);
     letter-spacing: -0.3px;
     line-height: 1.08;
@@ -837,9 +868,9 @@
     flex-wrap: wrap;
   }
   .mid-cta h3 {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Taste Bread HD', sans-serif;
     font-size: clamp(1.15rem, 3vw, 1.6rem);
-    font-weight: 800;
+    font-weight: 400;
     color: #fff;
   }
   .mid-cta .btn-white {
@@ -1012,7 +1043,10 @@
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">What We Do</span>
-          <h2>Built <em class="accent">Different</em></h2>
+          <div class="stamp reveal">
+            <span class="stamp-row stamp-black">Built</span>
+            <span class="stamp-row stamp-coral">Different</span>
+          </div>
         </div>
         <p>From concept to upload — we handle every part of making content that actually gets watched.</p>
       </div>
