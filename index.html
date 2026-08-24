@@ -8,16 +8,17 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black: #0a0a0a;
-    --black-soft: #121212;
-    --crimson: #dc143c;
-    --crimson-dark: #8f0e27;
-    --white: #f7f5f2;
-    --grey: #8a8a8a;
-    --line: rgba(255,255,255,0.12);
+    --black: #06060a;
+    --black-soft: #0d0d14;
+    --purple: #8b5cf6;
+    --purple-light: #b9a6ff;
+    --purple-dark: #4c1d95;
+    --white: #f6f4fb;
+    --grey: #8f8d9c;
+    --line: rgba(255,255,255,0.1);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,8 +34,12 @@
   a { color: inherit; }
   img { max-width: 100%; display: block; }
 
-  em.accent { font-style: italic; color: var(--crimson); }
-  .display em.accent { font-style: normal; display: inline-block; transform: skewX(-8deg); }
+  em.accent {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--purple-light);
+  }
 
   .reveal {
     opacity: 0;
@@ -48,12 +53,6 @@
   .reveal-4 { transition-delay: 0.32s; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  .display {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
   .wrap {
@@ -73,66 +72,116 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Header */
-  header {
+  /* ===== Floating pill nav ===== */
+  .nav-outer {
+    position: sticky;
+    top: 18px;
+    z-index: 200;
+    padding: 0 20px;
+  }
+  .nav-bar {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 0;
-    position: relative;
-    z-index: 10;
+    gap: 20px;
+    background: rgba(13,13,20,0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 12px 10px 24px;
   }
 
   .logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.5rem;
   }
-  .logo span { color: var(--crimson); }
+  .logo span { color: var(--purple-light); }
 
   nav {
     display: flex;
-    gap: 30px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
+    align-items: center;
+    gap: 28px;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
   nav a {
     text-decoration: none;
     color: var(--grey);
     transition: color 0.15s;
-    position: relative;
-    padding-bottom: 3px;
-  }
-  nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background: var(--crimson);
-    transition: width 0.25s ease;
   }
   nav a:hover { color: var(--white); }
-  nav a:hover::after { width: 100%; }
 
-  .header-cta {
-    background: var(--crimson);
+  .nav-drop {
+    position: relative;
+  }
+  .nav-drop > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--grey);
+    cursor: default;
+    transition: color 0.15s;
+  }
+  .nav-drop:hover > span { color: var(--white); }
+  .nav-drop svg { width: 10px; height: 10px; fill: currentColor; transition: transform 0.15s; }
+  .nav-drop:hover svg { transform: rotate(180deg); }
+
+  .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(13,13,20,0.97);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 26px;
+    display: flex;
+    gap: 36px;
+    min-width: 420px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    text-align: left;
+  }
+  .nav-drop:hover .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-col h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .dropdown-col a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--grey);
+    padding: 5px 0;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .dropdown-col a:hover { color: var(--purple-light); }
+
+  .nav-cta {
+    background: var(--purple);
     color: #fff;
     padding: 11px 22px;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 999px;
     transition: background 0.15s, transform 0.15s;
     white-space: nowrap;
   }
-  .header-cta:hover { background: #ff1a44; transform: translateY(-1px); }
+  .nav-cta:hover { background: #7c4cf2; transform: translateY(-1px); }
 
   .menu-toggle {
     display: none;
@@ -144,7 +193,7 @@
     padding: 6px;
   }
   .menu-toggle span {
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: var(--white);
     display: block;
@@ -154,185 +203,308 @@
     nav {
       display: none;
       position: absolute;
-      top: 100%;
+      top: calc(100% + 10px);
       left: 0;
       right: 0;
       flex-direction: column;
+      align-items: stretch;
       gap: 0;
       background: var(--black-soft);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 6px 0;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 8px 0;
     }
     nav.open { display: flex; }
-    nav a { padding: 14px 32px; }
+    nav a, .nav-drop { padding: 13px 26px; }
+    .nav-drop .dropdown-panel { display: none; }
+    .nav-bar { position: relative; padding-right: 10px; }
     .menu-toggle { display: flex; }
   }
 
   @media (max-width: 480px) {
-    header { padding: 20px 0; }
-    .header-cta { padding: 9px 16px; font-size: 0.7rem; }
-    .logo { font-size: 1.3rem; }
+    .nav-outer { top: 12px; }
+    .nav-bar { padding: 8px 8px 8px 18px; }
+    .logo { font-size: 1.25rem; }
   }
 
-  /* Hero */
+  /* ===== Hero ===== */
   .hero {
     position: relative;
-    padding: 40px 0 0;
-    border-bottom: 1px solid var(--line);
+    padding: 90px 0 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -10% -10% auto -10%;
+    height: 130%;
+    z-index: -1;
+    background:
+      radial-gradient(60% 55% at 85% 20%, rgba(139,92,246,0.35), transparent 70%),
+      radial-gradient(45% 45% at 10% 30%, rgba(139,92,246,0.18), transparent 70%);
   }
 
-  .hero-tag {
+  .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid var(--crimson);
-    color: var(--crimson);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    margin-bottom: 26px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+    color: var(--grey);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 7px 16px 7px 12px;
+    border-radius: 999px;
+    margin-bottom: 40px;
   }
-  .hero-tag::before {
+  .hero-badge::before {
     content: "";
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--crimson);
+    background: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
   }
 
-  .hero h1 {
-    font-size: clamp(3.4rem, 10vw, 8rem);
-    line-height: 0.92;
+  .hero-showreel {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 22px;
     margin-bottom: 30px;
   }
-  .hero h1 .stroke {
-    -webkit-text-stroke: 2px var(--white);
-    color: transparent;
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    line-height: 1.05;
+    letter-spacing: -1px;
   }
-  .hero h1 .fill-red { color: var(--crimson); }
+  .hero h1 .accent-underline {
+    position: relative;
+  }
+  .hero h1 .accent-underline::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: -6px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--purple-light), transparent);
+  }
+
+  .play-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    box-shadow: 0 10px 40px rgba(139,92,246,0.4);
+    transition: transform 0.2s ease;
+  }
+  .play-btn:hover { transform: scale(1.08); }
+  .play-btn svg { width: 22px; height: 22px; fill: var(--black); margin-left: 3px; }
+
+  @media (max-width: 700px) {
+    .hero-showreel { flex-direction: column; gap: 22px; }
+    .play-btn { width: 62px; height: 62px; }
+    .play-btn svg { width: 18px; height: 18px; }
+  }
 
   .hero-sub {
-    max-width: 480px;
+    max-width: 520px;
+    margin: 0 auto 40px;
     color: var(--grey);
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 34px;
   }
 
   .hero-actions {
     display: flex;
     align-items: center;
-    gap: 22px;
+    justify-content: center;
+    gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: 54px;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--crimson);
+    background: var(--purple);
     color: #fff;
-    padding: 17px 32px;
+    padding: 16px 30px;
     font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.88rem;
     text-decoration: none;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(220,20,60,0.3);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(139,92,246,0.35);
     transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
   }
-  .btn-primary:hover { background: #ff1a44; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(220,20,60,0.4); }
+  .btn-primary:hover { background: #7c4cf2; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(139,92,246,0.45); }
 
-  .hero-socials {
-    display: flex;
-    gap: 20px;
-  }
-  .hero-socials a {
-    width: 42px;
-    height: 42px;
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    padding: 16px 30px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    border-radius: 999px;
     border: 1px solid var(--line);
-    border-radius: 50%;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--purple-light); background: rgba(139,92,246,0.08); }
+
+  .hero-trust {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    color: var(--white);
-    transition: border-color 0.15s, color 0.15s;
+    gap: 12px;
+    margin-bottom: 0;
   }
-  .hero-socials a:hover { border-color: var(--crimson); color: var(--crimson); }
-  .hero-socials svg { width: 18px; height: 18px; fill: currentColor; }
-
-  .hero-strip {
+  .avatar-stack { display: flex; }
+  .avatar-stack span {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    border: 2px solid var(--black);
+    margin-left: -10px;
     display: flex;
-    border-top: 1px solid var(--line);
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
   }
-  .hero-strip-item {
-    flex: 1;
-    padding: 22px 0;
-    text-align: center;
-    border-right: 1px solid var(--line);
-  }
-  .hero-strip-item:last-child { border-right: none; }
-  .hero-strip-item .num {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.8rem;
-    color: var(--crimson);
-  }
-  .hero-strip-item .label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--grey);
-    margin-top: 4px;
-  }
-  @media (max-width: 700px) {
-    .hero-strip { flex-wrap: wrap; }
-    .hero-strip-item { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
-    .hero-strip-item:nth-child(2) { border-right: none; }
-    .hero-strip-item:nth-child(3), .hero-strip-item:nth-child(4) { border-bottom: none; }
-  }
+  .avatar-stack span:first-child { margin-left: 0; }
+  .hero-trust p { font-size: 0.85rem; color: var(--grey); font-weight: 500; }
 
   @media (max-width: 480px) {
     .wrap { padding: 0 20px; }
-    .hero { padding-top: 24px; }
-    .hero h1 { margin-bottom: 22px; }
-    .hero-sub { font-size: 0.95rem; }
-    .btn-primary { padding: 15px 26px; font-size: 0.82rem; width: 100%; justify-content: center; }
-    .hero-actions { flex-direction: column; align-items: stretch; gap: 18px; }
-    .hero-socials { justify-content: center; }
+    .hero { padding: 60px 0 40px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-outline { justify-content: center; width: 100%; }
   }
 
   /* Marquee */
   .marquee-strip {
-    background: var(--crimson);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
     white-space: nowrap;
+    padding: 4px 0;
+    margin-top: 60px;
   }
   .marquee-track {
     display: inline-flex;
-    animation: scroll 18s linear infinite;
+    animation: scroll 22s linear infinite;
   }
   .marquee-track span {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(0.95rem, 2.4vw, 1.3rem);
-    letter-spacing: 1px;
-    padding: 14px 22px;
-    color: #fff;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 14px 26px;
+    color: var(--grey);
     white-space: nowrap;
   }
-  .marquee-track span.dot { color: rgba(0,0,0,0.5); }
-  @media (max-width: 480px) {
-    .marquee-track span { padding: 12px 16px; }
-  }
+  .marquee-track span.dot { color: var(--purple); }
   @keyframes scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+
+  /* ===== Portfolio strip ===== */
+  .portfolio-section {
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .portfolio-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple-dark) transparent;
+  }
+  .portfolio-scroll::-webkit-scrollbar { height: 6px; }
+  .portfolio-scroll::-webkit-scrollbar-thumb { background: var(--purple-dark); border-radius: 6px; }
+
+  .portfolio-card {
+    position: relative;
+    flex: 0 0 220px;
+    aspect-ratio: 9/16;
+    border-radius: 18px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: var(--white);
+    border: 1px solid var(--line);
+  }
+  .portfolio-card .fallback-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #2a1a4a, #0a0a0a);
+  }
+  .portfolio-card img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.15) contrast(1.05);
+    transition: transform 0.4s;
+  }
+  .portfolio-card:hover img { transform: scale(1.05); }
+  .portfolio-card::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.35) 100%);
+  }
+  .portfolio-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: rgba(6,6,10,0.7);
+    border: 1px solid var(--line);
+    color: var(--white);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 5px 9px;
+    border-radius: 6px;
+  }
+  .portfolio-card .play-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(139,92,246,0.45);
+    transition: transform 0.2s;
+  }
+  .portfolio-card .play-circle svg { width: 14px; height: 14px; fill: var(--black); margin-left: 2px; }
+  .portfolio-card:hover .play-circle { transform: translate(-50%,-50%) scale(1.1); }
+  .portfolio-cta { text-align: center; margin-top: 40px; }
+
+  @media (max-width: 480px) {
+    .portfolio-card { flex-basis: 160px; }
   }
 
   /* Services */
@@ -341,7 +513,7 @@
     border-bottom: 1px solid var(--line);
   }
   @media (max-width: 480px) {
-    .services-section, .videos-section { padding: 56px 0; }
+    .services-section, .videos-section, .testimonials-section, .portfolio-section, .process-section { padding: 56px 0; }
   }
 
   .section-head {
@@ -352,8 +524,19 @@
     margin-bottom: 56px;
     flex-wrap: wrap;
   }
+  .section-head.centered { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+  .section-head .eyebrow-pill {
+    display: inline-block;
+    border: 1px solid var(--line);
+    color: var(--grey);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
   .section-head .eyebrow {
-    color: var(--crimson);
+    color: var(--purple-light);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -362,7 +545,9 @@
     display: block;
   }
   .section-head h2 {
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-size: clamp(1.9rem, 4.2vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -1px;
   }
   .section-head p {
     color: var(--grey);
@@ -370,6 +555,7 @@
     font-size: 0.92rem;
     line-height: 1.6;
   }
+  .section-head.centered p { max-width: 440px; }
 
   .services-grid {
     display: grid;
@@ -377,6 +563,8 @@
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
   }
   @media (max-width: 820px) {
     .services-grid { grid-template-columns: 1fr; }
@@ -392,23 +580,104 @@
   }
   .service-item:hover { background: var(--black-soft); }
   .service-item .idx {
-    font-family: 'Anton', sans-serif;
-    font-size: 2.4rem;
-    color: var(--crimson);
-    opacity: 0.5;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--purple-light);
+    opacity: 0.7;
     margin-bottom: 20px;
   }
   .service-item h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
   .service-item p {
     color: var(--grey);
     font-size: 0.92rem;
     line-height: 1.65;
   }
+
+  /* ===== Process ===== */
+  .process-section {
+    padding: 90px 0;
+    background: var(--black-soft);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  @media (max-width: 780px) {
+    .process-grid { grid-template-columns: 1fr; gap: 44px; }
+  }
+  .process-step .icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process-step .icon svg { width: 26px; height: 26px; stroke: var(--white); fill: none; stroke-width: 1.6; }
+  .process-step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+  .process-step p { color: var(--grey); font-size: 0.9rem; line-height: 1.6; max-width: 260px; margin: 0 auto; }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 820px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+  .testimonial-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+    background: var(--black-soft);
+  }
+  .testimonial-card .stars {
+    color: var(--purple-light);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  .testimonial-card p.quote {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--white);
+    margin-bottom: 22px;
+  }
+  .testimonial-card .who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-card .who .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .testimonial-card .who .name { font-weight: 700; font-size: 0.88rem; }
+  .testimonial-card .who .role { color: var(--grey); font-size: 0.78rem; }
 
   /* Videos */
   .videos-section {
@@ -433,6 +702,7 @@
     overflow: hidden;
     aspect-ratio: 16/10;
     border: 1px solid var(--line);
+    border-radius: 16px;
   }
 
   .video-card img {
@@ -441,12 +711,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(0.4) contrast(1.1);
+    filter: grayscale(0.3) contrast(1.05);
     transition: filter 0.25s, transform 0.4s;
   }
-  .video-card:hover img { filter: grayscale(0) contrast(1.1); transform: scale(1.04); }
+  .video-card:hover img { filter: grayscale(0) contrast(1.05); transform: scale(1.04); }
 
-  .video-card .fallback-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #2a0a10, #0a0a0a); }
+  .video-card .fallback-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #2a1a4a, #0a0a0a); }
 
   .video-card::after {
     content: "";
@@ -463,15 +733,15 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--crimson);
+    background: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    box-shadow: 0 8px 24px rgba(220,20,60,0.45);
+    box-shadow: 0 8px 24px rgba(139,92,246,0.45);
     transition: transform 0.2s;
   }
-  .video-card .play-circle svg { width: 18px; height: 18px; fill: #fff; margin-left: 2px; }
+  .video-card .play-circle svg { width: 16px; height: 16px; fill: var(--black); margin-left: 2px; }
   .video-card:hover .play-circle { transform: translate(-50%,-50%) scale(1.1); }
 
   .video-card .caption {
@@ -481,10 +751,8 @@
     z-index: 2;
   }
   .video-card .caption h4 {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.15rem;
-    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+    font-weight: 700;
   }
   .video-card .caption span {
     font-size: 0.68rem;
@@ -497,9 +765,19 @@
   .cta-band {
     text-align: center;
     padding: 110px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    inset: auto -10% -30% -10%;
+    height: 90%;
+    z-index: -1;
+    background: radial-gradient(55% 60% at 50% 100%, rgba(139,92,246,0.28), transparent 70%);
   }
   .cta-band .eyebrow {
-    color: var(--crimson);
+    color: var(--purple-light);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -508,8 +786,10 @@
     display: block;
   }
   .cta-band h2 {
-    font-size: clamp(2.2rem, 6vw, 4.2rem);
-    line-height: 1;
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.1;
     margin-bottom: 40px;
   }
 
@@ -523,25 +803,23 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 16px 28px;
+    padding: 15px 28px;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     border: 1px solid var(--line);
     color: var(--white);
+    border-radius: 999px;
     transition: border-color 0.15s, background 0.15s;
   }
-  .link-btn { border-radius: 4px; }
-  .link-btn:hover { border-color: var(--crimson); background: rgba(220,20,60,0.08); }
+  .link-btn:hover { border-color: var(--purple-light); background: rgba(139,92,246,0.08); }
   .link-btn.primary {
-    background: var(--crimson);
-    border-color: var(--crimson);
+    background: var(--purple);
+    border-color: var(--purple);
     color: #fff;
-    box-shadow: 0 10px 30px rgba(220,20,60,0.3);
+    box-shadow: 0 10px 30px rgba(139,92,246,0.35);
   }
-  .link-btn.primary:hover { background: #ff1a44; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(220,20,60,0.4); }
+  .link-btn.primary:hover { background: #7c4cf2; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(139,92,246,0.45); }
 
   @media (max-width: 480px) {
     .link-row { flex-direction: column; align-items: stretch; }
@@ -558,26 +836,24 @@
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    background: var(--crimson);
+    background: var(--purple);
     color: #fff;
     padding: 14px 24px;
     border-radius: 999px;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 12px 30px rgba(220,20,60,0.45);
+    box-shadow: 0 12px 30px rgba(139,92,246,0.45);
     transition: transform 0.15s, background 0.15s;
   }
-  .sticky-cta:hover { background: #ff1a44; transform: translateY(-2px); }
+  .sticky-cta:hover { background: #7c4cf2; transform: translateY(-2px); }
   @media (max-width: 480px) {
     .sticky-cta { left: 20px; right: 20px; bottom: 16px; justify-content: center; }
   }
 
   /* Mid-page CTA strip */
   .mid-cta {
-    background: var(--crimson);
+    background: linear-gradient(90deg, var(--purple-dark), var(--purple));
     padding: 34px 0;
   }
   .mid-cta .wrap {
@@ -588,21 +864,18 @@
     flex-wrap: wrap;
   }
   .mid-cta h3 {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-size: clamp(1.15rem, 3vw, 1.6rem);
+    font-weight: 700;
     color: #fff;
   }
   .mid-cta .btn-white {
     background: #fff;
-    color: var(--crimson);
+    color: var(--purple-dark);
     padding: 13px 26px;
     font-weight: 700;
     font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 999px;
     white-space: nowrap;
     transition: transform 0.15s;
   }
@@ -623,75 +896,142 @@
     gap: 12px;
   }
   footer .logo-small {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
     color: var(--white);
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
-  footer .logo-small span { color: var(--crimson); }
-  footer .foot-socials { display: flex; gap: 22px; text-transform: uppercase; letter-spacing: 1px; }
+  footer .logo-small span { color: var(--purple-light); }
+  footer .foot-socials { display: flex; gap: 22px; }
   footer .foot-socials a { text-decoration: none; color: var(--grey); }
   footer .foot-socials a:hover { color: var(--white); }
 </style>
 </head>
 <body>
 
-  <div class="wrap" style="position: relative;">
-    <header>
-      <div class="logo">MUFI<span>ME</span></div>
+  <div class="nav-outer">
+    <div class="nav-bar">
+      <div class="logo">Mufi<span>me</span></div>
       <nav id="siteNav">
         <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#work">Videos</a>
+        <div class="nav-drop">
+          <span>Services
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </span>
+          <div class="dropdown-panel">
+            <div class="dropdown-col">
+              <h4>Video Editing</h4>
+              <a href="#services">YouTube Videos</a>
+              <a href="#services">Shorts &amp; Reels</a>
+              <a href="#services">Highlight Reels</a>
+            </div>
+            <div class="dropdown-col">
+              <h4>Creative</h4>
+              <a href="#services">Creative Direction</a>
+              <a href="#services">Thumbnails</a>
+              <a href="#services">Content Strategy</a>
+            </div>
+          </div>
+        </div>
+        <a href="#work">Portfolio</a>
+        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <a class="header-cta" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <a class="nav-cta" href="https://www.youtube.com/@mufime7411?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
-    </header>
+    </div>
   </div>
 
   <section class="hero" id="home">
     <div class="wrap">
-      <span class="hero-tag reveal">Now Streaming</span>
-      <h1 class="display reveal reveal-1">
-        <span class="stroke">WE MAKE</span><br>
-        <span class="fill-red">VIDEOS</span> THAT HIT
-      </h1>
-      <p class="hero-sub reveal reveal-2">Mufime is a video &amp; content studio — <em class="accent">raw ideas</em>, sharp edits, and stories built for the feed. No filler, just the good stuff.</p>
+      <span class="hero-badge reveal">10000+ Videos Delivered</span>
+
+      <h1 class="reveal reveal-1">We <em class="accent">edit</em> really cool<br>videos in 48-72<em class="accent">hrs</em>.</h1>
+
+      <p class="hero-sub reveal reveal-2">Affordable, fast and human powered video edits.</p>
+
       <div class="hero-actions reveal reveal-3">
-        <a class="btn-primary" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-          Watch Now
-        </a>
-        <div class="hero-socials">
-          <a href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12Z"/></svg>
-          </a>
-          <a href="https://instagram.com/REPLACE_WITH_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.25.15 4.77 1.7 4.92 4.92.06 1.3.07 1.66.07 4.9s0 3.6-.07 4.9c-.15 3.2-1.66 4.77-4.92 4.92-1.3.06-1.65.07-4.9.07s-3.6 0-4.9-.07c-3.26-.15-4.77-1.72-4.92-4.92-.06-1.3-.07-1.65-.07-4.9s0-3.6.07-4.9C2.33 3.99 3.85 2.42 7.1 2.27 8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.5 0-4.75.07-2.28.1-3.4 1.24-3.5 3.5-.06 1.24-.07 1.6-.07 4.75s0 3.5.07 4.75c.1 2.25 1.22 3.4 3.5 3.5 1.24.06 1.6.07 4.75.07s3.5 0 4.75-.07c2.27-.1 3.4-1.24 3.5-3.5.06-1.24.07-1.6.07-4.75s0-3.5-.07-4.75c-.1-2.26-1.23-3.4-3.5-3.5C15.5 4 15.14 4 12 4Zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm4.7-2a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"/></svg>
-          </a>
-        </div>
+        <a class="btn-primary" href="mailto:mustafaworks786@gmail.com">Book a call</a>
+        <a class="btn-outline" href="#work">See plans</a>
       </div>
 
-      <div class="hero-strip reveal reveal-4">
-        <div class="hero-strip-item"><div class="num display">100K+</div><div class="label">Subscribers</div></div>
-        <div class="hero-strip-item"><div class="num display">4</div><div class="label">Videos</div></div>
-        <div class="hero-strip-item"><div class="num display">2026</div><div class="label">Est.</div></div>
-        <div class="hero-strip-item"><div class="num display">24/7</div><div class="label">Content</div></div>
+      <div class="hero-trust reveal reveal-4">
+        <div class="avatar-stack">
+          <span>MU</span><span>FI</span><span>ME</span>
+        </div>
+        <p>Trusted by 100+ Brands</p>
+      </div>
+    </div>
+
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>MUFIME</span><span class="dot">●</span>
+        <span>VIDEO PRODUCTION</span><span class="dot">●</span>
+        <span>CREATIVE DIRECTION</span><span class="dot">●</span>
+        <span>CONTENT STRATEGY</span><span class="dot">●</span>
+        <span>MUFIME</span><span class="dot">●</span>
+        <span>VIDEO PRODUCTION</span><span class="dot">●</span>
+        <span>CREATIVE DIRECTION</span><span class="dot">●</span>
+        <span>CONTENT STRATEGY</span><span class="dot">●</span>
       </div>
     </div>
   </section>
 
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>MUFIME</span><span class="dot">●</span>
-      <span>VIDEO PRODUCTION</span><span class="dot">●</span>
-      <span>CREATIVE DIRECTION</span><span class="dot">●</span>
-      <span>MUFIME</span><span class="dot">●</span>
-      <span>VIDEO PRODUCTION</span><span class="dot">●</span>
-      <span>CREATIVE DIRECTION</span><span class="dot">●</span>
+  <section class="portfolio-section" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Latest Drops</span>
+          <h2>Featured <em class="accent">Videos</em></h2>
+        </div>
+        <p>Straight from the channel — hit play and watch on YouTube.</p>
+      </div>
+
+      <div class="portfolio-scroll">
+        <a class="portfolio-card reveal reveal-1" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_1" target="_blank" rel="noopener">
+          <div class="fallback-bg"></div>
+          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_1/hqdefault.jpg" alt="" onerror="this.style.display='none'">
+          <span class="portfolio-tag">Short</span>
+          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <a class="portfolio-card reveal reveal-2" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_2" target="_blank" rel="noopener">
+          <div class="fallback-bg"></div>
+          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_2/hqdefault.jpg" alt="" onerror="this.style.display='none'">
+          <span class="portfolio-tag">Vlog</span>
+          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <a class="portfolio-card reveal reveal-3" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_3" target="_blank" rel="noopener">
+          <div class="fallback-bg"></div>
+          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_3/hqdefault.jpg" alt="" onerror="this.style.display='none'">
+          <span class="portfolio-tag">Feature</span>
+          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <a class="portfolio-card reveal reveal-4" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_4" target="_blank" rel="noopener">
+          <div class="fallback-bg"></div>
+          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_4/hqdefault.jpg" alt="" onerror="this.style.display='none'">
+          <span class="portfolio-tag">Short</span>
+          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <a class="portfolio-card reveal reveal-1" href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">
+          <div class="fallback-bg"></div>
+          <span class="portfolio-tag">More</span>
+          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+      </div>
+
+      <div class="portfolio-cta reveal reveal-2">
+        <a class="btn-primary" href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="mid-cta">
+    <div class="wrap">
+      <h3>Don't scroll past — subscribe now.</h3>
+      <a class="btn-white" href="https://www.youtube.com/@mufime7411?sub_confirmation=1" target="_blank" rel="noopener">Subscribe Free</a>
     </div>
   </div>
 
@@ -700,24 +1040,24 @@
       <div class="section-head reveal">
         <div>
           <span class="eyebrow">What We Do</span>
-          <h2 class="display">Built <em class="accent">Different</em></h2>
+          <h2>Built <em class="accent">Different</em></h2>
         </div>
         <p>From concept to upload — we handle every part of making content that actually gets watched.</p>
       </div>
 
       <div class="services-grid">
         <div class="service-item reveal reveal-1">
-          <div class="idx display">01</div>
+          <div class="idx">01</div>
           <h3>Video Production</h3>
           <p>Full shoot-to-edit production, built to hold attention from the first second.</p>
         </div>
         <div class="service-item reveal reveal-2">
-          <div class="idx display">02</div>
+          <div class="idx">02</div>
           <h3>Creative Direction</h3>
           <p>Concepts, scripts, and storytelling that give every video a reason to exist.</p>
         </div>
         <div class="service-item reveal reveal-3">
-          <div class="idx display">03</div>
+          <div class="idx">03</div>
           <h3>Content Strategy</h3>
           <p>Short-form, long-form, and everything built for how people actually watch now.</p>
         </div>
@@ -725,21 +1065,92 @@
     </div>
   </section>
 
-  <div class="mid-cta">
+  <section class="process-section">
     <div class="wrap">
-      <h3>Don't scroll past — subscribe now.</h3>
-      <a class="btn-white" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe Free</a>
-    </div>
-  </div>
+      <div class="section-head centered reveal">
+        <span class="eyebrow-pill">Process</span>
+        <h2>Your videos, <em class="accent">effortlessly</em>.</h2>
+        <p>From idea to upload in three simple steps.</p>
+      </div>
 
-  <section class="videos-section" id="work">
+      <div class="process-grid">
+        <div class="process-step reveal reveal-1">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M4.5 15a8 8 0 0 0 14.9 3M19.5 9a8 8 0 0 0-14.9-3"/></svg></div>
+          <h3>Watch</h3>
+          <p>Catch every drop the moment it lands — no algorithm gatekeeping.</p>
+        </div>
+        <div class="process-step reveal reveal-2">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
+          <h3>Subscribe</h3>
+          <p>One tap, zero cost, and you're locked into everything that's coming next.</p>
+        </div>
+        <div class="process-step reveal reveal-3">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.3a2 2 0 0 0 2-1.7l1.4-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+          <h3>Share</h3>
+          <p>Send it to someone — that's how this whole thing actually grows.</p>
+        </div>
+      </div>
+
+      <a class="btn-primary" href="https://www.youtube.com/@mufime7411?sub_confirmation=1" target="_blank" rel="noopener">Subscribe Now</a>
+    </div>
+  </section>
+
+  <section class="testimonials-section" id="testimonials">
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="eyebrow">Latest Drops</span>
-          <h2 class="display">Featured <em class="accent">Videos</em></h2>
+          <span class="eyebrow">Reviews</span>
+          <h2>What People <em class="accent">Say</em></h2>
         </div>
-        <p>Straight from the channel — hit play and watch on YouTube.</p>
+        <p>A few words from viewers and collaborators.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-1">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Every upload feels like it was made to be watched twice. The editing pace is unreal."</p>
+          <div class="who">
+            <div class="avatar">A</div>
+            <div>
+              <div class="name">Ayesha K.</div>
+              <div class="role">Subscriber</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-2">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Worked with Mufime on a brand collab and the turnaround plus quality blew us away."</p>
+          <div class="who">
+            <div class="avatar">B</div>
+            <div>
+              <div class="name">Bilal R.</div>
+              <div class="role">Brand Partner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-3">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"No filler, straight to the point — exactly what content should feel like in 2026."</p>
+          <div class="who">
+            <div class="avatar">S</div>
+            <div>
+              <div class="name">Sara M.</div>
+              <div class="role">Subscriber</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Full Grid</span>
+          <h2>All <em class="accent">Uploads</em></h2>
+        </div>
+        <p>Every video, always up on the channel.</p>
       </div>
 
       <div class="video-grid">
@@ -789,10 +1200,9 @@
   <section class="cta-band" id="contact">
     <div class="wrap">
       <span class="eyebrow reveal">Don't Miss Out</span>
-      <h2 class="display reveal reveal-1">Subscribe To<br><em class="accent">The Movement</em></h2>
+      <h2 class="reveal reveal-1">Subscribe To<br><em class="accent">The Movement</em></h2>
       <div class="link-row reveal reveal-2">
-        <a class="link-btn primary" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
-        <a class="link-btn" href="https://instagram.com/REPLACE_WITH_HANDLE" target="_blank" rel="noopener">Instagram</a>
+        <a class="link-btn primary" href="https://www.youtube.com/@mufime7411?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
         <a class="link-btn" href="mailto:mustafaworks786@gmail.com">Email Me</a>
       </div>
     </div>
@@ -800,16 +1210,15 @@
 
   <div class="wrap">
     <footer>
-      <div class="logo-small">MUFI<span>ME</span></div>
+      <div class="logo-small">Mufi<span>me</span></div>
       <div>&copy; <span id="year"></span> Mufime. All rights reserved.</div>
       <div class="foot-socials">
-        <a href="https://instagram.com/REPLACE_WITH_HANDLE" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">YouTube</a>
       </div>
     </footer>
   </div>
 
-  <a class="sticky-cta" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL_HANDLE?sub_confirmation=1" target="_blank" rel="noopener">
+  <a class="sticky-cta" href="https://www.youtube.com/@mufime7411?sub_confirmation=1" target="_blank" rel="noopener">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
     Subscribe
   </a>
