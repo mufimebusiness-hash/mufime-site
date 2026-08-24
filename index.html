@@ -135,10 +135,14 @@
   }
 
   .logo {
-    font-size: 1.3rem;
-    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
   }
-  .logo span { color: var(--coral); }
+  .logo img {
+    height: 42px;
+    width: auto;
+    display: block;
+  }
 
   nav {
     display: flex;
@@ -930,10 +934,14 @@
     gap: 12px;
   }
   footer .logo-small {
-    color: var(--white);
-    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
   }
-  footer .logo-small span { color: var(--coral-light); }
+  footer .logo-small img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
   footer .foot-socials { display: flex; gap: 22px; }
   footer .foot-socials a { text-decoration: none; color: var(--grey); }
   footer .foot-socials a:hover { color: var(--white); }
@@ -943,7 +951,7 @@
 
   <div class="nav-outer">
     <div class="nav-bar">
-      <div class="logo">Mufi<span>me</span></div>
+      <a class="logo" href="#home"><img src="./images/logo.png" alt="Mufime"></a>
       <nav id="siteNav">
         <a href="#home">Home</a>
         <div class="nav-drop">
@@ -1244,7 +1252,7 @@
 
   <div class="wrap">
     <footer>
-      <div class="logo-small">Mufi<span>me</span></div>
+      <div class="logo-small"><img src="./images/logo.png" alt="Mufime"></div>
       <div>&copy; <span id="year"></span> Mufime. All rights reserved.</div>
       <div class="foot-socials">
         <a href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">YouTube</a>
