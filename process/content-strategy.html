@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Strategy — Mufime</title>
+<meta name="description" content="Planning what to post, when, and why — content built around what actually keeps people watching.">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+  <div class="nav-outer">
+    <div class="nav-bar">
+      <a class="logo" href="/"><img src="/images/logo.png" alt="Mufime"></a>
+      <nav id="siteNav">
+        <a href="/#home">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#process">Process</a>
+        <a href="/#work">Portfolio</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <a class="nav-cta" href="mailto:mustafaworks786@gmail.com">Message</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="service-hero">
+    <div class="wrap">
+      <a class="back-link" href="/#process"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Our Process</a>
+      <h1 class="reveal reveal-1">Content Strategy</h1>
+      <p class="reveal reveal-2">Planning what to post, when, and why — content built around what actually keeps people watching.</p>
+      <div class="hero-actions reveal reveal-3">
+        <a class="btn-primary" href="mailto:mustafaworks786@gmail.com">Book a call</a>
+        <a class="btn-outline" href="/#process">Back to Process</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="niches-section">
+    <div class="wrap">
+      <div class="niche-grid">
+        <div class="niche-card reveal">
+          <h4>Format &amp; Platform Fit</h4>
+          <p>We help decide what format — short, long-form, or both — actually fits your message and the platform it's going on.</p>
+        </div>
+        <div class="niche-card reveal">
+          <h4>Posting Cadence</h4>
+          <p>A realistic publishing schedule built around your capacity, so consistency doesn't burn you out.</p>
+        </div>
+        <div class="niche-card reveal">
+          <h4>Hook &amp; Retention Planning</h4>
+          <p>Every video gets a plan for how it opens and how it holds attention — the difference between a scroll-past and a watch-through.</p>
+        </div>
+        <div class="niche-card reveal">
+          <h4>Performance Feedback</h4>
+          <p>We look at what's working and what isn't, and adjust the next batch of content accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal">Don't Miss Out</span>
+      <h2 class="reveal reveal-1">Let's Start<br><em class="accent">The Conversation</em></h2>
+      <div class="link-row reveal reveal-2">
+        <a class="link-btn primary" href="mailto:mustafaworks786@gmail.com">Send a Message</a>
+        <a class="link-btn" href="https://calendly.com/mufime/intro-call" target="_blank" rel="noopener">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <div class="logo-small"><img src="/images/logo.png" alt="Mufime"></div>
+      <div>&copy; <span id="year"></span> Mufime. All rights reserved.</div>
+      <div class="foot-socials">
+        <a href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </footer>
+  </div>
+
+  <a class="sticky-cta" href="mailto:mustafaworks786@gmail.com">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M3 8l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" fill="none" stroke="#fff" stroke-width="1.6"/></svg>
+    Message
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+    menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
+    siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => siteNav.classList.remove('open')));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
