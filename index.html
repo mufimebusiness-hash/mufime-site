@@ -8,12 +8,14 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 <style>
   @font-face {
-    font-family: 'Taste Bread HD';
-    src: url('./fonts/Taste-Bread-HD.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'Alfa Slab One';
+    src: url('./fonts/AlfaSlabOne-Regular.woff2') format('woff2'),
+         url('./fonts/AlfaSlabOne-Regular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
+
   @font-face {
     font-family: 'Alte Haas Grotesk';
     src: url('./fonts/AlteHaasGroteskBold.ttf') format('truetype');
@@ -48,14 +50,14 @@
   img { max-width: 100%; display: block; }
 
   h1, h2, h3, h4, .display-font, .logo, .logo-small {
-    font-family: 'Taste Bread HD', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-weight: 400;
     letter-spacing: 0.3px;
   }
 
   .stamp {
     display: inline-block;
-    font-family: 'Taste Bread HD', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-weight: 400;
     line-height: 1;
     transform: rotate(-3deg);
@@ -70,7 +72,7 @@
   .stamp-row.stamp-coral { background: var(--coral); color: #fff; border-radius: 0 0 6px 6px; margin-top: 3px; }
 
   em.accent {
-    font-family: 'Taste Bread HD', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-style: normal;
     font-weight: 400;
     background: #000;
@@ -579,7 +581,7 @@
   }
   .service-item:hover { background: var(--black-soft); }
   .service-item .idx {
-    font-family: 'Taste Bread HD', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-weight: 400;
     font-size: 2rem;
     color: var(--coral-light);
@@ -866,7 +868,7 @@
     flex-wrap: wrap;
   }
   .mid-cta h3 {
-    font-family: 'Taste Bread HD', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-size: clamp(1.15rem, 3vw, 1.6rem);
     font-weight: 400;
     color: #fff;
