@@ -611,6 +611,42 @@
     line-height: 1.65;
   }
 
+  /* ===== Niches ===== */
+  .niches-section {
+    padding: 100px 0 90px;
+  }
+  .niche-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 16px;
+  }
+  .niche-card {
+    background: var(--black-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 26px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .niche-card:hover {
+    border-color: var(--coral);
+    transform: translateY(-3px);
+  }
+  .niche-card h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .niche-card p {
+    color: var(--grey);
+    font-size: 0.86rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  @media (max-width: 480px) {
+    .niches-section { padding: 70px 0 60px; }
+  }
+
   /* ===== Process ===== */
   .process-section {
     padding: 90px 0;
@@ -974,6 +1010,7 @@
           </div>
         </div>
         <a href="#work">Portfolio</a>
+        <a href="#niches">Niches</a>
         <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1063,6 +1100,73 @@
 
       <div class="portfolio-cta reveal reveal-2">
         <a class="btn-primary" href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="niches-section" id="niches">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Who We Edit For</span>
+          <h2>Every Niche. <em class="accent">Every Format.</em></h2>
+        </div>
+        <p>From true crime to SaaS demos — if it needs editing, we've cut it.</p>
+      </div>
+
+      <div class="niche-grid">
+        <div class="niche-card reveal reveal-1">
+          <h4>Shorts &amp; Short-Form</h4>
+          <p>Fast, punchy cuts built to hook in the first second and hold attention till the end.</p>
+        </div>
+        <div class="niche-card reveal reveal-2">
+          <h4>Documentary Editing</h4>
+          <p>Long-form storytelling with pacing, sound design, and structure that keeps people watching.</p>
+        </div>
+        <div class="niche-card reveal reveal-3">
+          <h4>Tech Explainers</h4>
+          <p>Complex ideas and products broken down into clean, easy-to-follow videos.</p>
+        </div>
+        <div class="niche-card reveal reveal-4">
+          <h4>SaaS &amp; Product Videos</h4>
+          <p>Demo videos and launch content that make your software look as good as it works.</p>
+        </div>
+        <div class="niche-card reveal reveal-1">
+          <h4>VSLs (Video Sales Letters)</h4>
+          <p>Persuasion-first edits built to convert viewers into customers.</p>
+        </div>
+        <div class="niche-card reveal reveal-2">
+          <h4>Talking Head &amp; Podcast Clips</h4>
+          <p>Interviews and podcast content cut down into scroll-stopping clips.</p>
+        </div>
+        <div class="niche-card reveal reveal-3">
+          <h4>Tech &amp; Review Content</h4>
+          <p>Reviews, unboxings, and tech coverage edited with pace and polish.</p>
+        </div>
+        <div class="niche-card reveal reveal-4">
+          <h4>True Crime</h4>
+          <p>Tension-building edits, pacing, and sound design that keep viewers on edge.</p>
+        </div>
+        <div class="niche-card reveal reveal-1">
+          <h4>B2B, Finance &amp; AI Content</h4>
+          <p>Credible, professional editing for brands in finance, AI, and B2B.</p>
+        </div>
+        <div class="niche-card reveal reveal-2">
+          <h4>Story-Driven YouTube Content</h4>
+          <p>Narrative-first editing that turns raw footage into a story worth watching.</p>
+        </div>
+        <div class="niche-card reveal reveal-3">
+          <h4>Business &amp; Founder Channels</h4>
+          <p>Consistent, on-brand editing for founders and creators growing a channel.</p>
+        </div>
+        <div class="niche-card reveal reveal-4">
+          <h4>YouTube Shorts &amp; IG Reels</h4>
+          <p>Vertical-first edits built for maximum reach across every platform.</p>
+        </div>
+        <div class="niche-card reveal reveal-1">
+          <h4>Real Estate Video Editing</h4>
+          <p>Listing videos and property tours edited to sell the space, not just show it.</p>
+        </div>
       </div>
     </div>
   </section>
