@@ -384,6 +384,23 @@
     menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
     siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => siteNav.classList.remove('open')));
 
+    document.querySelectorAll('.nav-drop').forEach(drop => {
+      const trigger = drop.querySelector(':scope > span');
+      if (!trigger) return;
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = drop.classList.contains('open');
+        document.querySelectorAll('.nav-drop.open').forEach(d => { if (d !== drop) d.classList.remove('open'); });
+        drop.classList.toggle('open', !isOpen);
+      });
+    });
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-drop.open').forEach(drop => {
+        if (!drop.contains(e.target)) drop.classList.remove('open');
+      });
+    });
+
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
