@@ -1813,8 +1813,11 @@
   }
   .showreel-trust-strip {
     border-top: 1px solid var(--line);
-    padding: 26px 0;
+    padding: 22px 0;
     background: var(--black-soft);
+  }
+  .showreel-trust-strip + .showreel-trust-strip {
+    border-top: 1px solid var(--line);
   }
   .showreel-trust-label {
     text-align: center;
@@ -1824,6 +1827,28 @@
     color: var(--grey);
     margin-bottom: 16px;
   }
+
+  /* Client / brand logo chip slider (distinct from the teams-text slider) */
+  .logo-chip-track {
+    display: inline-flex;
+    align-items: center;
+    animation: scroll 26s linear infinite;
+  }
+  .logo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    color: var(--grey);
+    font-size: 0.82rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+  .logo-chip svg { width: 14px; height: 14px; fill: none; stroke: var(--coral-light); stroke-width: 1.6; }
 
   /* ===== What We Build Different ===== */
   .build-different-section { padding: 90px 0; border-bottom: 1px solid var(--line); }
