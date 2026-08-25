@@ -760,7 +760,7 @@
     letter-spacing: 0.6px;
     text-transform: uppercase;
     color: var(--grey);
-    margin-bottom: 16px;
+    margin: 28px 0 16px;
   }
   .logo-strip-row {
     display: flex;
@@ -780,7 +780,7 @@
     text-transform: uppercase;
     color: var(--grey);
     text-align: center;
-    margin: 28px 0 16px;
+    margin: 0 0 16px;
   }
   .people-strip {
     overflow: hidden;
