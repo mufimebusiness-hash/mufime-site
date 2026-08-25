@@ -152,6 +152,15 @@
   .nav-drop {
     position: relative;
   }
+  .nav-drop::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 460px;
+    height: 22px;
+  }
   .nav-drop > span {
     display: inline-flex;
     align-items: center;
