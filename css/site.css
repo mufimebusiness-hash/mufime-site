@@ -433,10 +433,22 @@
     flex-wrap: wrap;
     margin-bottom: 26px;
   }
-  .hero .hero-actions .btn-primary,
-  .hero .hero-actions .btn-outline {
-    padding: 13px 26px;
-    font-size: 0.82rem;
+  .hero .hero-actions .btn-primary {
+    padding: 21px 46px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    animation: heroCtaPulse 2.6s ease-in-out infinite;
+  }
+  .hero .hero-actions .btn-primary:hover {
+    animation-play-state: paused;
+    transform: translateY(-2px) scale(1.03);
+  }
+  @keyframes heroCtaPulse {
+    0%, 100% { box-shadow: 0 10px 30px rgba(255,90,82,0.35), 0 0 0 0 rgba(255,90,82,0.45); }
+    50% { box-shadow: 0 10px 34px rgba(255,90,82,0.5), 0 0 0 14px rgba(255,90,82,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero .hero-actions .btn-primary { animation: none; }
   }
 
   .btn-primary {
