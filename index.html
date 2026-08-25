@@ -3,523 +3,786 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUFIME — Book a Call. Get a Cut That Fits.</title>
-<meta name="description" content="Mufime — post-production partner for YouTube, brand, SaaS, and social video. Book a call and get a free sample cut.">
-<link rel="icon" type="image/png" href="./images/favicon.png">
+
+<title>Mufime — Your Content. Our Craft.</title>
+<meta name="description" content="Mufime is a post-production partner for creators and brands — editing, motion graphics, animation, VFX and sound design. Get a free sample edit.">
+
+<link rel="canonical" href="https://mufime.com/">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mufime">
+<meta property="og:title" content="Mufime — Your Content. Our Craft.">
+<meta property="og:description" content="A post-production partner for creators and brands. Editing, motion graphics, animation, VFX and sound design.">
+<meta property="og:image" content="https://mufime.com/images/og-cover.jpg">
+<meta property="og:url" content="https://mufime.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mufime — Your Content. Our Craft.">
+<meta name="twitter:description" content="A post-production partner for creators and brands. Editing, motion graphics, animation, VFX and sound design.">
+<meta name="twitter:image" content="https://mufime.com/images/og-cover.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://img.youtube.com">
+<link rel="dns-prefetch" href="https://img.youtube.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/css/site.css">
+
+<!-- ANALYTICS — replace data-domain with the live domain once deployed -->
+<script defer data-domain="mufime.com" src="https://plausible.io/js/script.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Mufime",
+  "description": "Post-production partner for creators and brands — editing, motion graphics, animation, VFX and sound design.",
+  "email": "mufime.business@gmail.com",
+  "url": "https://mufime.com/"
+}
+</script>
 </head>
 <body>
 
-  <div class="nav-outer">
-    <div class="nav-bar">
-      <a class="logo" href="#home"><img src="./images/logo.png" alt="Mufime"></a>
-      <nav id="siteNav">
-        <a href="#home">Home</a>
-        <a href="#showreel">Showreel</a>
-        <a href="#portfolio">Featured Portfolio</a>
-        <a href="#testimonials">Client Feedback</a>
-        <a href="#working-with-us">Working With Us</a>
-        <a href="#services">Services</a>
-        <a href="#build-different">What We Build Different</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <a class="nav-cta" href="mailto:mufime.business@gmail.com">Message</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      </div>
-    </div>
+<!-- ============================================================
+     NAVIGATION — the logo is the trigger. No permanent bar.
+     ============================================================ -->
+<div class="nav-trigger-row">
+  <button class="logo-btn" id="logoBtn" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+    <img src="/images/logo.png" alt="">
+    <span class="logo-word">Mufime</span>
+    <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
+  <div class="nav-quick">
+    <a class="btn btn-line btn-sm" href="#contact" data-track="Nav Quick Contact">Start a project</a>
+  </div>
+</div>
+
+<div class="nav-scrim" id="navScrim"></div>
+
+<nav class="nav-panel" id="navPanel" aria-label="Main">
+  <span class="tag">Menu</span>
+  <div class="nav-links">
+    <a href="#home"><span>01</span> Home</a>
+    <a href="#portfolio"><span>02</span> Work</a>
+    <a href="#services"><span>03</span> Services</a>
+    <a href="#pricing"><span>04</span> Pricing</a>
+    <a href="#process"><span>05</span> Process</a>
+    <a href="#contact"><span>06</span> Contact</a>
+  </div>
+  <div class="nav-foot">
+    <p>Tell us what you're building and we'll tell you what it takes.</p>
+    <a class="mail" href="mailto:mufime.business@gmail.com">mufime.business@gmail.com</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="home">
+  <!-- Drop a 6–8s muted loop at /media/hero-loop.mp4 (and .webm).
+       Until then the poster frame and grade wash carry the section. -->
+  <div class="hero-media">
+    <video autoplay muted loop playsinline poster="/images/hero-poster.jpg" aria-hidden="true">
+      <!-- TO ADD THE HERO LOOP: put a 6–8 second muted clip at /media/hero-loop.mp4
+           (and ideally /media/hero-loop.webm), then delete this comment wrapper
+           so the two source tags below go live.
+      <source src="/media/hero-loop.webm" type="video/webm">
+      <source src="/media/hero-loop.mp4" type="video/mp4">
+      -->
+    </video>
   </div>
 
-  <section class="hero" id="home">
-    <div class="wrap">
-      <span class="hero-badge reveal">10,000+ Videos Delivered</span>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="tag rv in">Post-Production Studio</span>
+      <h1 class="rv in d1">Your Content.<br>Our <span class="key">Craft.</span></h1>
+      <p class="lede rv in d2">
+        We take finished footage and unfinished ideas and turn them into work that holds
+        attention — editing, motion graphics, animation, VFX and sound, under one roof.
+      </p>
 
-      <h1 class="reveal reveal-1">Book a Call. Get a <em class="accent">Cut That Fits.</em></h1>
-
-      <p class="hero-sub reveal reveal-2">8+ years of experience. Free sample after a quick appointment.</p>
-
-      <div class="hero-actions reveal reveal-3">
-        <a class="btn-primary" href="https://calendly.com/mufime/intro-call" target="_blank" rel="noopener">Book a Call</a>
-        <a class="btn-outline" href="#pricing">See Plans</a>
+      <div class="btn-row rv in d3">
+        <a class="btn btn-key" href="#sample" data-track="Free Sample CTA Clicked">
+          Get a Free Sample Edit
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-line" href="/book.html" data-track="Book a Call Clicked">Book a Call</a>
+        <a class="btn btn-ghost" href="#pricing">See Pricing</a>
       </div>
 
-      <button class="hero-scroll-arrows reveal reveal-4" id="scrollToShowreel" aria-label="Scroll to showreel">
-        <span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-        <span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
-      </button>
-    </div>
-  </section>
-
-  <section class="showreel-section" id="showreel">
-    <div class="showreel-inner">
-      <span class="eyebrow-pill reveal">Showreel</span>
-      <h2 class="reveal reveal-1">Watch The <em class="accent">Edit</em></h2>
-      <p class="reveal reveal-2" style="color:var(--grey); max-width:520px; margin:14px auto 0;">A short reel of recent cuts — hit play to see how footage becomes a finished story.</p>
-
-      <div class="showreel-frame reveal reveal-3" id="heroReel" data-video-id="REPLACE_WITH_SHOWREEL_VIDEO_ID">
-        <img class="reel-thumb" src="https://img.youtube.com/vi/REPLACE_WITH_SHOWREEL_VIDEO_ID/maxresdefault.jpg" alt="" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/REPLACE_WITH_SHOWREEL_VIDEO_ID/hqdefault.jpg';">
-        <div class="reel-thumb-shade"></div>
-        <button class="reel-play-btn" id="reelPlayBtn" aria-label="Play showreel">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <div class="hero-credit rv in d4">
+        <span class="hero-stat"><b>10,000+</b> Videos Delivered Across Our Team</span>
+        <button class="scroll-cue" id="scrollCue" aria-label="Scroll to showreel">
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </button>
       </div>
     </div>
+  </div>
+</header>
 
-    <div class="showreel-trust-strip">
-      <p class="showreel-trust-label">Clients &amp; Brands We've Worked With</p>
-      <div class="marquee-strip" style="margin-top:0; border-top:none;">
-        <div class="logo-chip-track">
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-          <span class="logo-chip"><svg viewBox="0 0 24 24"><path d="M4 16l4-8 4 8M6.5 11h3M14 8v8M18 8h2a2 2 0 1 1 0 4h-2v-4z"/></svg>Client Logo</span>
-        </div>
-      </div>
-      <p style="text-align:center; color:var(--grey); font-size:0.7rem; opacity:0.6; margin-top:10px;">*Real client names/logos will replace these placeholders once confirmed.</p>
-    </div>
-
-    <div class="showreel-trust-strip">
-      <p class="showreel-trust-label">Trusted by Teams Working With</p>
-      <div class="marquee-strip" style="margin-top:0; border-top:none;">
-        <div class="marquee-track">
-          <span>DTC Beauty Brands</span><span class="dot">●</span>
-          <span>SaaS &amp; Product</span><span class="dot">●</span>
-          <span>YouTube Creators</span><span class="dot">●</span>
-          <span>B2B &amp; Finance</span><span class="dot">●</span>
-          <span>Podcast Networks</span><span class="dot">●</span>
-          <span>DTC Beauty Brands</span><span class="dot">●</span>
-          <span>SaaS &amp; Product</span><span class="dot">●</span>
-          <span>YouTube Creators</span><span class="dot">●</span>
-          <span>B2B &amp; Finance</span><span class="dot">●</span>
-          <span>Podcast Networks</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="portfolio-section" id="portfolio">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">Selected Work</span>
-          <h2>Featured <em class="accent">Portfolio</em></h2>
-        </div>
-        <p>Three recent projects — straight from the channel.</p>
-      </div>
-
-      <div class="portfolio-scroll">
-        <a class="portfolio-card reveal reveal-1" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_1" target="_blank" rel="noopener">
-          <div class="fallback-bg"></div>
-          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_1/hqdefault.jpg" alt="" onerror="this.style.display='none'">
-          <span class="portfolio-tag">Short</span>
-          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-        <a class="portfolio-card reveal reveal-2" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_2" target="_blank" rel="noopener">
-          <div class="fallback-bg"></div>
-          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_2/hqdefault.jpg" alt="" onerror="this.style.display='none'">
-          <span class="portfolio-tag">Vlog</span>
-          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-        <a class="portfolio-card reveal reveal-3" href="https://www.youtube.com/watch?v=REPLACE_WITH_VIDEO_ID_3" target="_blank" rel="noopener">
-          <div class="fallback-bg"></div>
-          <img src="https://img.youtube.com/vi/REPLACE_WITH_VIDEO_ID_3/hqdefault.jpg" alt="" onerror="this.style.display='none'">
-          <span class="portfolio-tag">Feature</span>
-          <div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-      </div>
-
-      <div class="portfolio-cta reveal reveal-2">
-        <a class="btn-primary" href="/work.html">View More Work</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials-section" id="testimonials">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">Reviews</span>
-          <h2>Client <em class="accent">Feedback</em></h2>
-        </div>
-        <p>Real client feedback goes here — video testimonials preferred, added as they're confirmed.</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal reveal-1" style="border-style:dashed; opacity:0.85;">
-          <div class="stars" style="opacity:0.4;">★★★★★</div>
-          <p class="quote">Client testimonial placeholder — a real quote from a client will be added here once confirmed.</p>
-          <div class="who">
-            <div class="avatar">?</div>
-            <div>
-              <div class="name">Client Name</div>
-              <div class="role">Company / Role — pending</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-2" style="border-style:dashed; opacity:0.85;">
-          <div class="stars" style="opacity:0.4;">★★★★★</div>
-          <p class="quote">Video testimonial placeholder — a short client video will be embedded here when available.</p>
-          <div class="who">
-            <div class="avatar">?</div>
-            <div>
-              <div class="name">Client Name</div>
-              <div class="role">Company / Role — pending</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-3" style="border-style:dashed; opacity:0.85;">
-          <div class="stars" style="opacity:0.4;">★★★★★</div>
-          <p class="quote">Client testimonial placeholder — a real quote from a client will be added here once confirmed.</p>
-          <div class="who">
-            <div class="avatar">?</div>
-            <div>
-              <div class="name">Client Name</div>
-              <div class="role">Company / Role — pending</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust-band reveal" id="working-with-us">
-    <div class="wrap">
-      <div class="section-head centered reveal">
-        <span class="eyebrow-pill">Working With Us</span>
-        <h2>Built For <em class="accent">Peace of Mind</em></h2>
-        <p>Mufime works as a post-production partner, not merely an editor — carrying the workload so you don't have to.</p>
-      </div>
-      <div class="trust-grid">
-        <div class="trust-item reveal reveal-1">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9 8 10 4.6-1 8-5 8-10V6l-8-4z"/></svg></div>
-          <h4>NDA on Every Project</h4>
-          <p>Your footage and brand stay confidential, always.</p>
-        </div>
-        <div class="trust-item reveal reveal-2">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg></div>
-          <h4>Timezone Overlap</h4>
-          <p>Live overlap hours with US, UK, and EU teams.</p>
-        </div>
-        <div class="trust-item reveal reveal-3">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
-          <h4>Structured Turnaround</h4>
-          <p>First cuts back fast, with QC and revisions built into the timeline.</p>
-        </div>
-        <div class="trust-item reveal reveal-4">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M2 7h20v10H2zM2 11h20"/></svg></div>
-          <h4>Secure Payments</h4>
-          <p>Invoicing through Stripe, Wise, and Payoneer — verified and traceable.</p>
-        </div>
-        <div class="trust-item reveal reveal-5">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>Small Senior Team</h4>
-          <p>A tight roster of senior editors — no rotating juniors, and real quality control before delivery.</p>
-        </div>
-      </div>
-      <p class="trust-note reveal">*Interim placeholders — swap in exact SLA/turnaround numbers once confirmed.</p>
-    </div>
-  </section>
-
-  <section class="services-section" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">What We Edit</span>
-          <div class="stamp reveal">
-            <span class="stamp-row stamp-black">Built</span>
-            <span class="stamp-row stamp-coral">Different</span>
-          </div>
-        </div>
-        <p>Every project starts with what's missing, not just what's there — built for conversion.</p>
-      </div>
-
-      <div class="services-grid-5">
-        <a class="service-item reveal reveal-1" href="/services/story-driven-youtube.html">
-          <div class="idx">01</div>
-          <h3>YouTube / Long-Form</h3>
-          <p>Narrative-first editing that turns raw footage into a story worth watching, start to finish.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-2" href="/services/youtube-shorts-ig-reels.html">
-          <div class="idx">02</div>
-          <h3>Short-Form Content</h3>
-          <p>Vertical-first edits built to hook in the first second and hold attention on every platform.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-3" href="/services/performance-ads.html">
-          <div class="idx">03</div>
-          <h3>Performance Ads</h3>
-          <p>Conversion-first ad edits built and iterated for real ad-spend performance.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-4" href="/services/saas-product-demos.html">
-          <div class="idx">04</div>
-          <h3>SaaS &amp; B2B Content</h3>
-          <p>Demo videos and B2B content edited to make your product look as good as it works.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-5" href="/services/motion-graphics.html">
-          <div class="idx">05</div>
-          <h3>Motion Graphics</h3>
-          <p>Titles, lower-thirds, and kinetic type that make every deliverable feel finished.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-1" href="/services/2d-animation.html">
-          <div class="idx">06</div>
-          <h3>2D Animation</h3>
-          <p>Explainers, characters, and illustrated sequences built frame by frame.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-2" href="/services/3d-animation.html">
-          <div class="idx">07</div>
-          <h3>3D Animation</h3>
-          <p>Dimensional product renders and animated sequences with real depth and lighting.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-3" href="/services/vfx.html">
-          <div class="idx">08</div>
-          <h3>VFX</h3>
-          <p>Compositing, tracking, and visual effects that hold up on a second watch.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-4" href="/services/sound-design.html">
-          <div class="idx">09</div>
-          <h3>Sound Design</h3>
-          <p>Mixing, SFX, and audio cleanup that makes a cut feel as good as it looks.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="service-item reveal reveal-5" href="/services/advanced-post-production.html">
-          <div class="idx">10</div>
-          <h3>Advanced Post-Production</h3>
-          <p>Multi-stage finishing for teams that need more than a single-pass edit.</p>
-          <span class="link-hint">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-
-      <div class="services-more reveal">
-        <a href="/services.html">See more niches we cover &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="build-different-section" id="build-different">
-    <div class="wrap">
-      <div class="section-head centered reveal">
-        <span class="eyebrow-pill">What We Build Different</span>
-        <h2>Not Just <em class="accent">Editing</em></h2>
-        <p>Five distinct disciplines, each treated as its own craft — not a one-size-fits-all edit.</p>
-      </div>
-      <div class="build-grid">
-        <a class="build-card reveal reveal-1" href="/services/story-driven-youtube.html">
-          <h3>Long-Form YouTube</h3>
-          <p>Narrative structure, pacing, and retention built for videos that need to hold attention for minutes, not seconds.</p>
-          <span class="link-hint">See examples <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="build-card reveal reveal-2" href="/services/youtube-shorts-ig-reels.html">
-          <h3>Short-Form</h3>
-          <p>Hooks, captions, and pacing engineered for the first second — built for Shorts, Reels, and TikTok.</p>
-          <span class="link-hint">See examples <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="build-card reveal reveal-3" href="/services/performance-ads.html">
-          <h3>Performance Content</h3>
-          <p>Ad edits built to be tested, iterated, and optimized against real conversion data.</p>
-          <span class="link-hint">See examples <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="build-card reveal reveal-4" href="/services/saas-product-demos.html">
-          <h3>SaaS &amp; B2B</h3>
-          <p>Clear, credible product storytelling for software and B2B brands that need to look enterprise-ready.</p>
-          <span class="link-hint">See examples <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="build-card reveal reveal-5" href="/services/advanced-post-production.html">
-          <h3>Advanced Creative</h3>
-          <p>Motion graphics, 2D/3D animation, and VFX layered in when a straight cut isn't enough.</p>
-          <span class="link-hint">See examples <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="plans-section" id="pricing">
-    <div class="wrap">
-      <div class="section-head centered reveal">
-        <span class="eyebrow-pill">Pricing</span>
-        <h2>Tell Us What You Want to Create. <em class="accent">We'll Study It First.</em></h2>
-        <p>Complexity-based pricing, not duration-based — every plan starts with a Book a Call, never a Buy Now.</p>
-      </div>
-
-      <div class="pricing-condensed-grid reveal reveal-1">
-        <div class="pricing-condensed-card">
-          <div class="plan-name">Simple</div>
-          <div class="plan-price"><span class="amount">$50</span><span class="period">/video</span></div>
-          <p class="condensed-note">Straightforward edits, single format, minimal graphics.</p>
-        </div>
-        <div class="pricing-condensed-card">
-          <div class="plan-name">Complex</div>
-          <div class="plan-price"><span class="amount">$75–$100</span><span class="period">/video</span></div>
-          <p class="condensed-note">Everything in Simple, plus advanced pacing, graphics, and formats.</p>
-        </div>
-        <div class="pricing-condensed-card">
-          <div class="plan-name">Premium</div>
-          <div class="plan-price"><span class="amount">$500+</span><span class="period">/project</span></div>
-          <p class="condensed-note">High-end work — requires a consultation before any price is confirmed.</p>
-        </div>
-      </div>
-
-      <div class="hero-actions reveal reveal-2">
-        <a class="btn-primary" href="https://calendly.com/mufime/intro-call" target="_blank" rel="noopener">Book a Call</a>
-        <a class="btn-outline" href="/plans.html">See Full Plans &amp; Comparison</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="process-section" id="process">
-    <div class="wrap">
-      <div class="section-head centered reveal">
-        <span class="eyebrow-pill">Process</span>
-        <h2>How We <em class="accent">Work</em></h2>
-        <p>Three stages, clickable for the full breakdown of each.</p>
-      </div>
-      <div class="process-grid">
-        <a class="process-step reveal reveal-1" href="/process/pre-production.html">
-          <div class="idx">01</div>
-          <h3>Pre-Production</h3>
-          <p>Brief, footage, and brand guardrails collected and mapped before a single cut is made.</p>
-          <span class="link-hint">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="process-step reveal reveal-2" href="/process/post-production.html">
-          <div class="idx">02</div>
-          <h3>Post-Production</h3>
-          <p>Edit, review, QC, and delivery — with a second editor checking every project before it ships.</p>
-          <span class="link-hint">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="process-step reveal reveal-3" href="/process/content-strategy.html">
-          <div class="idx">03</div>
-          <h3>Content Strategy</h3>
-          <p>Positioning, format, and cadence guidance so every deliverable serves a bigger goal.</p>
-          <span class="link-hint">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band" id="contact">
-    <div class="wrap">
-      <span class="eyebrow reveal">Don't Miss Out</span>
-      <h2 class="reveal reveal-1">Let's Create <em class="accent">Something That Fits.</em></h2>
-      <div class="link-row reveal reveal-2">
-        <a class="link-btn primary" href="mailto:mufime.business@gmail.com">Send a Message</a>
-        <a class="link-btn" href="https://calendly.com/mufime/intro-call" target="_blank" rel="noopener">Book a Call</a>
-      </div>
-    </div>
-  </section>
-
+<!-- ============================================================
+     SHOWREEL
+     ============================================================ -->
+<section class="reel-sec" id="showreel">
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo-small" style="margin-bottom:14px;"><img src="./images/logo.png" alt="Mufime"></div>
-        <p style="color:var(--grey); font-size:0.85rem; max-width:280px;">A post-production partner for creators and brands — not just an editor.</p>
+    <div class="reel-head rv">
+      <span class="tag">Showreel</span>
+      <h2>Ninety seconds of<br>what we actually do</h2>
+      <p class="lede">One reel, cut from recent client work across long-form, short-form, motion and animation.</p>
+    </div>
+  </div>
+
+  <div class="reel-stage rv d1">
+    <!-- Replace data-video-id with the YouTube ID of the showreel. -->
+    <div class="reel-frame" data-video-id="REPLACE_WITH_SHOWREEL_ID" data-title="Mufime Showreel">
+      <div class="slot-centre">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+        <span>Showreel · Awaiting Upload</span>
       </div>
-      <div class="footer-col">
+      <button class="play" data-play aria-label="Play showreel">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+    <div class="reel-meta">
+      <span>Mufime · Selected Work</span>
+      <span>Sound on</span>
+    </div>
+  </div>
+
+  <!-- ---------- Slider 1 — clients &amp; brands ---------- -->
+  <div class="sec-tight" style="padding-bottom:0;">
+    <div class="strip strip-mask" style="border-top:1px solid var(--line);">
+      <p class="strip-label">Clients &amp; Brands We've Worked With</p>
+      <div class="glide" style="--speed:46s;">
+        <!-- Replace each .brand-slot with the real client mark:
+             <span class="brand-slot filled"><img src="/images/clients/name.svg" alt="Client name"></span> -->
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M12 3l9 18H3z"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Client Mark</span>
+        <!-- duplicate set keeps the loop seamless -->
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M12 3l9 18H3z"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>Client Mark</span>
+        <span class="brand-slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Client Mark</span>
+      </div>
+    </div>
+
+    <!-- ---------- Slider 2 — trusted by teams ---------- -->
+    <div class="strip strip-mask">
+      <p class="strip-label">Trusted by Teams</p>
+      <div class="glide" style="--speed:58s;">
+        <span class="team-item">Creator Studios</span>
+        <span class="team-item">DTC Brand Teams</span>
+        <span class="team-item">SaaS Marketing</span>
+        <span class="team-item">Podcast Networks</span>
+        <span class="team-item">Agency Partners</span>
+        <span class="team-item">B2B &amp; Finance</span>
+        <span class="team-item">Creator Studios</span>
+        <span class="team-item">DTC Brand Teams</span>
+        <span class="team-item">SaaS Marketing</span>
+        <span class="team-item">Podcast Networks</span>
+        <span class="team-item">Agency Partners</span>
+        <span class="team-item">B2B &amp; Finance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED PORTFOLIO
+     ============================================================ -->
+<section class="sec sec-raised" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head sec-head-split rv">
+      <div>
+        <span class="tag">Selected Work</span>
+        <h2>Featured Portfolio</h2>
+      </div>
+      <p class="lede">Projects across long-form, short-form and advanced creative. Each one opens with the full breakdown.</p>
+    </div>
+
+    <!-- Each slot takes: data-video-id, thumbnail img, title, client, category.
+         Fill one in and it becomes a live card — no layout changes needed. -->
+    <div class="grid-work grid-work-3">
+
+      <a class="slot slot-16x9 rv" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_01"
+         data-client="Client name" data-service="Long-Form YouTube">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 01</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—01</span><span class="slot-cat">Long-Form</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+
+      <a class="slot slot-16x9 rv d1" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_02"
+         data-client="Client name" data-service="Short-Form">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 02</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—02</span><span class="slot-cat">Short-Form</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+
+      <a class="slot slot-16x9 rv d2" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_03"
+         data-client="Client name" data-service="Advanced Creative">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 03</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—03</span><span class="slot-cat">Motion</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+
+      <a class="slot slot-16x9 rv" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_04"
+         data-client="Client name" data-service="Performance Content">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 04</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—04</span><span class="slot-cat">Performance</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+
+      <a class="slot slot-16x9 rv d1" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_05"
+         data-client="Client name" data-service="SaaS &amp; B2B">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 05</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—05</span><span class="slot-cat">SaaS &amp; B2B</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+
+      <a class="slot slot-16x9 rv d2" href="/work.html" data-video-id="REPLACE_WITH_VIDEO_ID_06"
+         data-client="Client name" data-service="Advanced Creative">
+        <div class="slot-centre">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+          <span>Slot 06</span>
+        </div>
+        <div class="slot-body">
+          <div class="slot-top"><span class="slot-id">MF—06</span><span class="slot-cat">3D / VFX</span></div>
+          <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="btn-row center rv" style="margin-top:34px;">
+      <a class="btn btn-line" href="/work.html" data-track="Portfolio Project Opened">View the full portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLIENT FEEDBACK
+     ============================================================ -->
+<section class="sec" id="feedback">
+  <div class="wrap">
+    <div class="sec-head sec-head-split rv">
+      <div>
+        <span class="tag">Client Feedback</span>
+        <h2>What it's like<br>to work with us</h2>
+      </div>
+      <p class="lede">Written feedback first, then clients on camera. Every quote below is a slot reserved for a real client — nothing here is invented.</p>
+    </div>
+
+    <!-- Replace .slot-card content with the genuine quote, name, company.
+         Remove the class "slot-card" once it holds a real testimonial. -->
+    <div class="quote-grid">
+      <div class="quote-card slot-card rv">
+        <div class="quote-mark">"</div>
+        <p class="q">Reserved for a client quote. Add the testimonial text here once you have written permission to publish it.</p>
+        <div class="who">
+          <div class="av">01</div>
+          <div><b>Client name</b><span>Company · Role</span></div>
+        </div>
+      </div>
+      <div class="quote-card slot-card rv d1">
+        <div class="quote-mark">"</div>
+        <p class="q">Reserved for a client quote. Add the testimonial text here once you have written permission to publish it.</p>
+        <div class="who">
+          <div class="av">02</div>
+          <div><b>Client name</b><span>Company · Role</span></div>
+        </div>
+      </div>
+      <div class="quote-card slot-card rv d2">
+        <div class="quote-mark">"</div>
+        <p class="q">Reserved for a client quote. Add the testimonial text here once you have written permission to publish it.</p>
+        <div class="who">
+          <div class="av">03</div>
+          <div><b>Client name</b><span>Company · Role</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- Vertical video testimonials ---------- -->
+    <div style="margin-top:56px;">
+      <p class="cat-label rv">On Camera · Vertical Testimonials</p>
+      <div class="grid-vertical">
+        <a class="slot slot-9x16 rv" href="#" data-video-id="REPLACE_WITH_TESTIMONIAL_ID_01">
+          <div class="slot-centre">
+            <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg>
+            <span>Video 01</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-top"><span class="slot-id">VT—01</span></div>
+            <div class="slot-info"><h4>Client name</h4><p>Company</p></div>
+          </div>
+        </a>
+        <a class="slot slot-9x16 rv d1" href="#" data-video-id="REPLACE_WITH_TESTIMONIAL_ID_02">
+          <div class="slot-centre">
+            <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg>
+            <span>Video 02</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-top"><span class="slot-id">VT—02</span></div>
+            <div class="slot-info"><h4>Client name</h4><p>Company</p></div>
+          </div>
+        </a>
+        <a class="slot slot-9x16 rv d2" href="#" data-video-id="REPLACE_WITH_TESTIMONIAL_ID_03">
+          <div class="slot-centre">
+            <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg>
+            <span>Video 03</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-top"><span class="slot-id">VT—03</span></div>
+            <div class="slot-info"><h4>Client name</h4><p>Company</p></div>
+          </div>
+        </a>
+        <a class="slot slot-9x16 rv d3" href="#" data-video-id="REPLACE_WITH_TESTIMONIAL_ID_04">
+          <div class="slot-centre">
+            <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg>
+            <span>Video 04</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-top"><span class="slot-id">VT—04</span></div>
+            <div class="slot-info"><h4>Client name</h4><p>Company</p></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORKING WITH US — a ruled list, not another card grid
+     ============================================================ -->
+<section class="sec sec-raised" id="working-with-us">
+  <div class="wrap">
+    <div class="sec-head sec-head-split rv">
+      <div>
+        <span class="tag">Working With Us</span>
+        <h2>Built for<br>peace of mind</h2>
+      </div>
+      <p class="lede">Mufime works as a post-production partner, not simply an editor. The point is that you hand something over and stop thinking about it.</p>
+    </div>
+
+    <div class="pledge-list">
+      <div class="pledge rv">
+        <span class="n">01</span>
+        <h4>Reliable production</h4>
+        <p>Work goes into a scheduled pipeline with a named editor, not a queue you can't see into.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">02</span>
+        <h4>Consistent quality</h4>
+        <p>The same team, the same standards, whether it's your first video or your fiftieth.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">03</span>
+        <h4>Professional communication</h4>
+        <p>Clear updates at each stage. You always know where a project stands without chasing it.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">04</span>
+        <h4>Structured workflow</h4>
+        <p>Brief, first cut, consolidated feedback, final delivery — a defined path with no improvising.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">05</span>
+        <h4>Quality control</h4>
+        <p>A second editor reviews pacing, audio, captions and export settings before anything reaches you.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">06</span>
+        <h4>Reliable turnaround</h4>
+        <p>Delivery windows agreed upfront against real capacity, so the date you're given is the date you get.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">07</span>
+        <h4>Dedicated creative support</h4>
+        <p>Input on structure, hooks and treatment — not just execution of a shot list.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">08</span>
+        <h4>Scalability</h4>
+        <p>Go from one video a month to twenty a week without renegotiating how everything works.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">09</span>
+        <h4>A clear revision process</h4>
+        <p>One consolidated round of feedback per video, with scope agreed in advance so nothing drifts.</p>
+      </div>
+      <div class="pledge rv">
+        <span class="n">10</span>
+        <h4>Less work for you</h4>
+        <p>Send footage and a brief. We handle the rest and come back with something finished.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES — five pillars, then supporting specialisms
+     ============================================================ -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head sec-head-split rv">
+      <div>
+        <span class="tag">Services</span>
+        <h2>What we build</h2>
+      </div>
+      <p class="lede">Five things we do properly, backed by the specialist craft that sits underneath them.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <a class="pillar rv" href="/services/story-driven-youtube.html">
+        <span class="n">01</span>
+        <h3>Long-Form YouTube</h3>
+        <p>Narrative structure, pacing and retention editing for videos that have to hold attention for minutes, not seconds.</p>
+        <span class="go">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="pillar rv d1" href="/services/youtube-shorts-ig-reels.html">
+        <span class="n">02</span>
+        <h3>Short-Form</h3>
+        <p>Hooks, captions and rhythm engineered for the first second — built for Shorts, Reels and TikTok.</p>
+        <span class="go">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="pillar rv d2" href="/services/performance-ads.html">
+        <span class="n">03</span>
+        <h3>Performance Content</h3>
+        <p>Ad creative built to be tested and iterated — variants, hooks and cutdowns that answer to real numbers.</p>
+        <span class="go">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="pillar rv" href="/services/saas-product-demos.html">
+        <span class="n">04</span>
+        <h3>SaaS &amp; B2B</h3>
+        <p>Product demos, launch films and explainers that make complex software look clear and enterprise-ready.</p>
+        <span class="go">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="pillar rv d1" href="/services/advanced-post-production.html">
+        <span class="n">05</span>
+        <h3>Advanced Creative</h3>
+        <p>Motion design, 2D and 3D animation, VFX and compositing for work that needs more than a cut.</p>
+        <span class="go">See the work <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <div class="spec-row rv">
+      <span class="tag tag-dim">Specialisms</span>
+      <a class="spec" href="/services/motion-graphics.html">Motion Graphics</a>
+      <a class="spec" href="/services/2d-animation.html">2D Animation</a>
+      <a class="spec" href="/services/3d-animation.html">3D Animation</a>
+      <a class="spec" href="/services/vfx.html">VFX</a>
+      <a class="spec" href="/services/sound-design.html">Sound Design</a>
+      <a class="spec" href="/services/advanced-post-production.html">Advanced Post-Production</a>
+      <a class="spec" href="/services.html">All services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS — before pricing, so the price lands in context
+     ============================================================ -->
+<section class="sec sec-raised" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Our Process</span>
+      <h2>How a project runs</h2>
+      <p class="lede">Three stages. Each one is a page of its own if you want the detail.</p>
+    </div>
+
+    <div class="step-grid">
+      <a class="step rv" href="/process/pre-production.html">
+        <span class="n">01</span>
+        <h3>Pre-Production</h3>
+        <p>Planning, creative direction, references and preparation — everything agreed before a single cut is made.</p>
+        <span class="go">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="step rv d1" href="/process/post-production.html">
+        <span class="n">02</span>
+        <h3>Post-Production</h3>
+        <p>Editing, motion graphics, sound design, VFX, animation and finishing — with QC before anything ships.</p>
+        <span class="go">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="step rv d2" href="/process/content-strategy.html">
+        <span class="n">03</span>
+        <h3>Content Strategy</h3>
+        <p>Planning content around your audience, objectives and distribution, so each video serves something bigger.</p>
+        <span class="go">Read more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Pricing</span>
+      <h2>Tell us what you're building.<br>We'll find the right production level.</h2>
+      <p class="lede">Standard editing starts around $50 a video. Larger and more complex projects are scoped to what they actually involve — so you get a real number, not a guess.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier rv">
+        <div>
+          <div class="tier-name">Standard</div>
+          <p class="tier-for">Straightforward, high-volume editing.</p>
+        </div>
+        <div class="tier-price">
+          <span class="from">Starting around</span>
+          <span class="amt">$50</span><span class="per">/ video</span>
+        </div>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Professional cuts and pacing</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Basic colour correction and audio cleanup</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Captions, music and basic SFX</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Basic B-roll and text graphics</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>1 revision round per video</li>
+        </ul>
+        <p class="excl"><b>Not included:</b> complex motion graphics, advanced animation, heavy VFX, 3D, scriptwriting, full content strategy.</p>
+        <a class="btn btn-line" href="#quote" data-track="Get a Quote Clicked">Get a Quote</a>
+      </div>
+
+      <div class="tier lead rv d1">
+        <span class="tier-flag">Most Requested</span>
+        <div>
+          <div class="tier-name">Advanced</div>
+          <p class="tier-for">More involved editing and creative treatment.</p>
+        </div>
+        <div class="tier-price">
+          <span class="from">Scoped per project</span>
+          <span class="amt">Quoted</span>
+        </div>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Everything in Standard</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Advanced storytelling and structure</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Developed motion graphics and advanced captions</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Detailed sound design and B-roll treatment</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Visual effects and sophisticated transitions</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Dedicated creative and editorial handling</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>1 revision round per video</li>
+        </ul>
+        <p class="excl"><b>Scope:</b> anything outside the agreed brief is quoted separately before we start.</p>
+        <a class="btn btn-key" href="#quote" data-track="Get a Quote Clicked">Get a Quote</a>
+      </div>
+
+      <div class="tier rv d2">
+        <div>
+          <div class="tier-name">Premium</div>
+          <p class="tier-for">Advanced creative production and campaigns.</p>
+        </div>
+        <div class="tier-price">
+          <span class="from">Projects from</span>
+          <span class="amt">$250</span><span class="per">+</span>
+        </div>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Advanced motion design</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>2D and 3D animation</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>VFX and complex compositing</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>High-end commercial and campaign editing</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Creative direction and custom visual systems</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Multiple deliverables</li>
+        </ul>
+        <p class="excl"><b>Any project from $250 requires an online consultation before confirmation</b> — scope varies too much to quote blind.</p>
+        <a class="btn btn-line" href="/book.html" data-track="Book a Call Clicked">Book a Call</a>
+      </div>
+    </div>
+
+    <div class="note-band rv">
+      <p>Pricing is driven by what a project actually involves: complexity, duration, number of deliverables, animation, VFX, 3D, motion graphics, timeline, revision requirements and creative input.</p>
+      <p>That's why the $50 figure is a starting point rather than a flat rate — it keeps the door open for smaller jobs without forcing a fixed price onto work that needs more.</p>
+    </div>
+
+    <div class="btn-row center rv" style="margin-top:34px;">
+      <a class="btn btn-line" href="/pricing.html">Compare plans in full</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT — three routes, matched to project size
+     ============================================================ -->
+<section class="sec contact-sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Contact</span>
+      <h2>Start with a sample,<br>or start with a quote</h2>
+      <p class="lede">You don't need to book a call to get moving. Pick whichever route fits the project.</p>
+    </div>
+
+    <div class="form-split">
+
+      <!-- ---------- Free sample edit ---------- -->
+      <div class="form-card key-path rv" id="sample">
+        <span class="tag">No commitment</span>
+        <h3>Get a Free Sample Edit</h3>
+        <p>Send us a clip and a short brief. We'll cut a sample so you can judge the work before spending anything. Subject to project suitability.</p>
+
+        <form data-form="sample" novalidate>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Free Sample Edit request — mufime.com">
+          <input type="hidden" name="from_name" value="Mufime Website">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="s-name">Name</label>
+            <input id="s-name" name="name" type="text" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="s-email">Email</label>
+            <input id="s-email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="s-desc">What are you making?</label>
+            <textarea id="s-desc" name="description" required placeholder="A short description, plus any reference you like the feel of."></textarea>
+          </div>
+          <div class="field">
+            <label for="s-link">Footage or project link (optional)</label>
+            <input id="s-link" name="link" type="url" placeholder="Drive, Dropbox, Frame.io, YouTube…">
+          </div>
+
+          <button class="btn btn-key" type="submit">Request my sample edit</button>
+          <p class="form-note">We reply from mufime.business@gmail.com, usually within one working day.</p>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- ---------- Quote ---------- -->
+      <div class="form-card rv d1" id="quote">
+        <span class="tag tag-dim">Standard &amp; Advanced</span>
+        <h3>Get a Quote</h3>
+        <p>For straightforward and mid-complexity projects. Tell us what you need and we'll come back with pricing and next steps by email — no call required.</p>
+
+        <form data-form="quote" novalidate>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Quote request — mufime.com">
+          <input type="hidden" name="from_name" value="Mufime Website">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="q-name">Name</label>
+            <input id="q-name" name="name" type="text" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="q-email">Email</label>
+            <input id="q-email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="q-desc">What are you making?</label>
+            <textarea id="q-desc" name="description" required placeholder="Format, rough length, how many videos, and anything involved like motion graphics or animation."></textarea>
+          </div>
+          <div class="field">
+            <label for="q-link">Footage or project link (optional)</label>
+            <input id="q-link" name="link" type="url" placeholder="Drive, Dropbox, Frame.io, YouTube…">
+          </div>
+
+          <button class="btn btn-line" type="submit">Send project details</button>
+          <p class="form-note">We review the requirements and reply with pricing from mufime.business@gmail.com.</p>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ---------- Book a call ---------- -->
+    <div class="editor-band rv" style="margin-top:18px;">
+      <div>
+        <h4>Project at $250 or more?</h4>
+        <p>Larger work gets an online consultation first, so scope, timeline, deliverables and creative direction are settled before anything is confirmed.</p>
+      </div>
+      <a class="btn btn-line" href="/book.html" data-track="Book a Call Clicked">Book a Call</a>
+    </div>
+
+    <p class="alt-contact rv">Prefer email? <a href="mailto:mufime.business@gmail.com">mufime.business@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="/images/logo.png" alt="Mufime" loading="lazy" width="62" height="62">
+        <p>A post-production partner for creators and brands — not just an editor.</p>
+      </div>
+      <div class="foot-col">
         <h4>Navigate</h4>
         <a href="#home">Home</a>
-        <a href="#showreel">Showreel</a>
-        <a href="#portfolio">Featured Portfolio</a>
-        <a href="#testimonials">Client Feedback</a>
-        <a href="#working-with-us">Working With Us</a>
-        <a href="#services">Services</a>
-        <a href="#build-different">What We Build Different</a>
-        <a href="#pricing">Pricing</a>
+        <a href="/work.html">Work</a>
+        <a href="/services.html">Services</a>
+        <a href="/pricing.html">Pricing</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="footer-col">
+      <div class="foot-col">
         <h4>Get in Touch</h4>
         <a href="https://www.instagram.com/mufime" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">YouTube</a>
-        <a href="mailto:mufime.business@gmail.com">mufime.business@gmail.com</a>
+        <a href="mailto:mufime.business@gmail.com">Email</a>
+        <a href="#feedback">Client Feedback</a>
+        <a href="#working-with-us">Working With Us</a>
       </div>
     </div>
 
-    <div class="editor-band reveal">
+    <div class="editor-band">
       <div>
-        <h3>Are You an Editor?</h3>
-        <p>Mufime is always looking for senior editors who want steady, well-paid client work.</p>
+        <h4>Are You an Editor?</h4>
+        <p>We're always looking for senior editors, motion designers and animators who want steady, well-paid client work.</p>
       </div>
-      <a class="btn-primary" href="mailto:mufime.business@gmail.com">Join the Team</a>
+      <a class="btn btn-key" href="mailto:mufime.business@gmail.com?subject=Join%20the%20Team%20—%20Mufime" data-track="Join the Team Clicked">Join the Team</a>
     </div>
 
-    <footer class="footer-bottom">
-      <div>&copy; <span id="year"></span> Mufime. All rights reserved.</div>
-    </footer>
+    <div class="foot-base">
+      <span>&copy; <span id="year"></span> Mufime</span>
+      <span>mufime.business@gmail.com</span>
+    </div>
   </div>
+</footer>
 
-  <a class="sticky-cta" href="mailto:mufime.business@gmail.com">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M3 8l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" fill="none" stroke="#fff" stroke-width="1.6"/></svg>
-    Message
-  </a>
+<a class="dock" id="dock" href="#contact" data-track="Dock Contact Clicked">
+  <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M3 8l9 6 9-6"/></svg>
+  Start a project
+</a>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const reelPlayBtn = document.getElementById('reelPlayBtn');
-    if (reelPlayBtn) {
-      reelPlayBtn.addEventListener('click', () => {
-        const reel = document.getElementById('heroReel');
-        const videoId = reel.dataset.videoId;
-        reel.innerHTML = `<iframe class="reel-video" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Mufime Showreel" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-      });
-    }
-
-    const scrollToShowreel = document.getElementById('scrollToShowreel');
-    if (scrollToShowreel) {
-      scrollToShowreel.addEventListener('click', () => {
-        const target = document.getElementById('showreel');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-
-    const menuToggle = document.getElementById('menuToggle');
-    const siteNav = document.getElementById('siteNav');
-    menuToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
-    siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => siteNav.classList.remove('open')));
-
-    document.querySelectorAll('.nav-drop').forEach(drop => {
-      const trigger = drop.querySelector(':scope > span');
-      if (!trigger) return;
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = drop.classList.contains('open');
-        document.querySelectorAll('.nav-drop.open').forEach(d => { if (d !== drop) d.classList.remove('open'); });
-        drop.classList.toggle('open', !isOpen);
-      });
-    });
-    document.addEventListener('click', (e) => {
-      document.querySelectorAll('.nav-drop.open').forEach(drop => {
-        if (!drop.contains(e.target)) drop.classList.remove('open');
-      });
-    });
-
-    const revealEls = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-      revealEls.forEach(el => io.observe(el));
-    } else {
-      revealEls.forEach(el => el.classList.add('visible'));
-    }
-  </script>
+<script src="/js/site.js" defer></script>
 </body>
 </html>
