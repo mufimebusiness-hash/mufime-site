@@ -50,9 +50,12 @@
     <div class="wrap">
       <span class="hero-badge reveal">10000+ Videos Delivered</span>
 
-      <div class="hero-reel reveal reveal-1">
-        <iframe class="reel-video" src="https://www.youtube.com/embed/M9SjZoExt0I?autoplay=1&mute=1&loop=1&playlist=M9SjZoExt0I&controls=0&modestbranding=1&rel=0&playsinline=1" title="Mufime Showreel" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-        <div class="reel-caption-note">Muted by default · captioned</div>
+      <div class="hero-reel reveal reveal-1" id="heroReel" data-video-id="M9SjZoExt0I">
+        <img class="reel-thumb" src="https://img.youtube.com/vi/M9SjZoExt0I/maxresdefault.jpg" alt="Mufime showreel thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/M9SjZoExt0I/hqdefault.jpg';">
+        <div class="reel-thumb-shade"></div>
+        <button class="reel-play-btn" id="reelPlayBtn" aria-label="Play showreel" type="button">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
 
       <h1 class="hero-position reveal reveal-2">Post-production for brands and creators<br><span class="hero-position-accent">who can't afford to look average.</span></h1>
@@ -381,6 +384,15 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const reelPlayBtn = document.getElementById('reelPlayBtn');
+    if (reelPlayBtn) {
+      reelPlayBtn.addEventListener('click', () => {
+        const reel = document.getElementById('heroReel');
+        const videoId = reel.dataset.videoId;
+        reel.innerHTML = `<iframe class="reel-video" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Mufime Showreel" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      });
+    }
 
     const menuToggle = document.getElementById('menuToggle');
     const siteNav = document.getElementById('siteNav');

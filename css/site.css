@@ -368,18 +368,37 @@
     display: block;
     border: 0;
   }
-  .reel-caption-note {
+  .reel-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .reel-thumb-shade {
     position: absolute;
-    right: 10px;
-    bottom: 8px;
-    font-size: 0.6rem;
-    color: var(--grey);
-    background: rgba(6,6,10,0.6);
-    padding: 3px 8px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6,6,10,0.15), rgba(6,6,10,0.45));
     pointer-events: none;
   }
+  .reel-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: var(--white);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 34px rgba(255,90,82,0.5);
+    transition: transform 0.2s;
+  }
+  .reel-play-btn:hover { transform: translate(-50%,-50%) scale(1.08); }
+  .reel-play-btn svg { width: 24px; height: 24px; fill: var(--black); margin-left: 4px; }
 
   .hero .hero-position {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
