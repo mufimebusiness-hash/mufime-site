@@ -85,7 +85,7 @@ FOOTER = f"""
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="/images/logo.png" alt="Mufime" loading="lazy" width="62" height="62">
-        <p>A post-production partner for creators and brands — not just an editor.</p>
+        <p>A post-production partner for creators and brands, not just an editor.</p>
       </div>
       <div class="foot-col">
         <h4>Navigate</h4>
@@ -98,8 +98,9 @@ FOOTER = f"""
       </div>
       <div class="foot-col">
         <h4>Get in Touch</h4>
-        <a href="https://www.instagram.com/mufime" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/mufi.me/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.youtube.com/@mufime7411" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.upwork.com/agencies/1952708819031826853/" target="_blank" rel="noopener">Upwork</a>
         <a href="mailto:{EMAIL}">Email</a>
       </div>
     </div>
@@ -109,7 +110,7 @@ FOOTER = f"""
         <h4>Are You an Editor?</h4>
         <p>We're always looking for senior editors, motion designers and animators who want steady, well-paid client work.</p>
       </div>
-      <a class="btn btn-key" href="mailto:{EMAIL}?subject=Join%20the%20Team%20—%20Mufime" data-track="Join the Team Clicked">Join the Team</a>
+      <a class="btn btn-key" href="mailto:{EMAIL}?subject=Join%20the%20Team%20at%20Mufime" data-track="Join the Team Clicked">Join the Team</a>
     </div>
 
     <div class="foot-base">
@@ -139,7 +140,7 @@ CTA_SEC = """
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
       <a class="btn btn-line" href="/#quote" data-track="Get a Quote Clicked">Get a Quote</a>
     </div>
-    <p class="alt-contact rv">Larger project? <a href="/book.html">Book a call</a> — or email <a href="mailto:%s">%s</a></p>
+    <p class="alt-contact rv">Larger project? <a href="/book.html">Book a call</a>, or email <a href="mailto:%s">%s</a></p>
   </div>
 </section>
 """ % ("%s", "%s", EMAIL, EMAIL)
@@ -161,10 +162,10 @@ def slot(prefix, n, cat, wide=True):
 
 SERVICES = [
     ("story-driven-youtube",     "Long-Form YouTube",        "Narrative structure, pacing and retention editing for videos that hold attention for minutes, not seconds.", "Long-Form"),
-    ("youtube-shorts-ig-reels",  "Short-Form",               "Hooks, captions and rhythm engineered for the first second — built for Shorts, Reels and TikTok.", "Short-Form"),
-    ("performance-ads",          "Performance Content",      "Ad creative built to be tested and iterated — variants, hooks and cutdowns that answer to real numbers.", "Performance"),
+    ("youtube-shorts-ig-reels",  "Short-Form",               "Hooks, captions and rhythm engineered for the first second, built for Shorts, Reels and TikTok.", "Short-Form"),
+    ("performance-ads",          "Performance Content",      "Ad creative built to be tested and iterated: variants, hooks and cutdowns that answer to real numbers.", "Performance"),
     ("saas-product-demos",       "SaaS &amp; B2B",           "Product demos, launch films and explainers that make complex software look clear and enterprise-ready.", "SaaS &amp; B2B"),
-    ("advanced-post-production", "Advanced Post-Production", "Multi-stage finishing for work that needs more than a single pass — grading, compositing, mix and delivery.", "Advanced"),
+    ("advanced-post-production", "Advanced Post-Production", "Multi-stage finishing for work that needs more than a single pass: grading, compositing, mix and delivery.", "Advanced"),
     ("motion-graphics",          "Motion Graphics",          "Titles, lower-thirds, kinetic type and animated callouts that make a deliverable feel finished.", "Motion"),
     ("2d-animation",             "2D Animation",             "Explainers, character work and illustrated sequences built frame by frame.", "2D"),
     ("3d-animation",             "3D Animation",             "Product renders and dimensional sequences with real depth, lighting and camera movement.", "3D"),
@@ -186,13 +187,13 @@ SERVICES = [
 
 PROCESS = [
     ("pre-production", "Pre-Production", "01",
-     "Planning, creative direction, references and preparation — everything agreed before a single cut is made.",
+     "Planning, creative direction, references and preparation, all agreed before a single cut is made.",
      [("Brief and objectives", "We start with what the video is for, who it's for, and what it has to achieve. Nothing gets cut until that's settled."),
       ("References and direction", "You send what you like the feel of. We translate that into a treatment the editor can actually work to."),
       ("Footage review", "We go through the material before starting, so problems surface early rather than at first-cut stage."),
-      ("Structure and outline", "Longer pieces get a paper edit first — the shape of the story before the shape of the timeline.")]),
+      ("Structure and outline", "Longer pieces get a paper edit first: the shape of the story before the shape of the timeline.")]),
     ("post-production", "Post-Production", "02",
-     "Editing, motion graphics, sound design, VFX, animation and finishing — with quality control before anything ships.",
+     "Editing, motion graphics, sound design, VFX, animation and finishing, with quality control before anything ships.",
      [("First cut", "A named editor builds the edit against the agreed brief and structure."),
       ("Motion, sound and effects", "Graphics, sound design, VFX and animation are layered in according to the production level."),
       ("Quality control", "A second editor reviews pacing, audio, captions and export settings before you see it."),
@@ -270,7 +271,7 @@ def build_service(slug, name, desc, cat):
 """ + (CTA_SEC % (f"Need {plain.lower()}?", "Send us a clip and a short brief. We'll cut a free sample so you can judge the work before spending anything."))
 
     write(f"services/{slug}.html",
-          head(f"{plain} — Mufime", html.unescape(desc), f"services/{slug}.html") + NAV + body + FOOTER)
+          head(f"{plain}: Mufime", html.unescape(desc), f"services/{slug}.html") + NAV + body + FOOTER)
 
 
 def build_process(slug, name, num, desc, steps):
@@ -324,7 +325,7 @@ def build_process(slug, name, num, desc, steps):
 """ + (CTA_SEC % ("Ready to start?", "Send a clip and a short brief and we'll come back with a free sample edit, or full pricing if you'd rather have the number first."))
 
     write(f"process/{slug}.html",
-          head(f"{name} — Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
+          head(f"{name}: Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
 
 
 def build_services_hub():
@@ -379,7 +380,7 @@ def build_services_hub():
 """ + (CTA_SEC % ("Don't see your niche?", "Tell us what you're making. If it's post-production, there's a good chance we handle it."))
 
     write("services.html",
-          head("Services — Mufime", "Every post-production service Mufime offers — long-form, short-form, performance content, SaaS and B2B, motion graphics, animation, VFX and sound design.", "services.html")
+          head("Services: Mufime", "Every post-production service Mufime offers, including long-form, short-form, performance content, SaaS and B2B, motion graphics, animation, VFX and sound design.", "services.html")
           + NAV + body + FOOTER)
 
 
@@ -403,7 +404,7 @@ def build_work():
     <a class="back" href="/"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Home</a>
     <span class="tag" style="display:block;margin-top:18px;">Portfolio</span>
     <h1>The work</h1>
-    <p class="lede">Projects grouped by what they are. Each slot holds a video, thumbnail, title, client and category — they fill in as work is cleared for publication.</p>
+    <p class="lede">Projects grouped by what they are. Each slot holds a video, thumbnail, title, client and category, and they fill in as work is cleared for publication.</p>
     <div class="btn-row">
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
       <a class="btn btn-line" href="/pricing.html">See Pricing</a>
@@ -419,7 +420,7 @@ def build_work():
 """ + (CTA_SEC % ("Want work like this?", "Send a clip and a short brief and we'll cut a free sample so you can judge it for yourself."))
 
     write("work.html",
-          head("Work — Mufime", "Selected post-production work from Mufime across long-form, short-form, performance content, SaaS and B2B, motion graphics, 3D and VFX.", "work.html")
+          head("Work: Mufime", "Selected post-production work from Mufime across long-form, short-form, performance content, SaaS and B2B, motion graphics, 3D and VFX.", "work.html")
           + NAV + body + FOOTER)
 
 
@@ -429,7 +430,7 @@ def build_redirect():
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Pricing — Mufime</title>
+<title>Pricing: Mufime</title>
 <link rel="canonical" href="https://mufime.com/pricing.html">
 <meta http-equiv="refresh" content="0; url=/pricing.html">
 <script>location.replace('/pricing.html');</script>
