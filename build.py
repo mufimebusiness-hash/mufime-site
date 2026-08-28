@@ -266,6 +266,9 @@ VIDEOS = {
         {"yt": "w5oh1RCGUn4",
          "title": "Video Essay Edit",
          "client": "Paths Of Meaning"},
+        {"drive": "1mOGQEgJKxC3fmEqH45nh5ItFzUGPXiUC",
+         "title": "Long-Form Documentary Edit",
+         "client": "Eternal Passenger · 782K Subscribers"},
     ],
 }
 
