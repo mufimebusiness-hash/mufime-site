@@ -263,6 +263,9 @@ VIDEOS = {
         {"yt": "zXWOWnfimZY",
          "title": "Documentary Series Edit",
          "client": "BE AMAZED · 13.5M Subscribers"},
+        {"yt": "w5oh1RCGUn4",
+         "title": "Video Essay Edit",
+         "client": "Paths Of Meaning"},
     ],
 }
 
@@ -303,7 +306,7 @@ def build_service(slug, name, desc, cat):
         <span class="tag">The Work</span>
         <h2>{plain} examples</h2>
       </div>
-      <p class="lede">Selected {plain.lower()} projects. These slots fill in as work is cleared for publication.</p>
+      <p class="lede">{"A selection of our " + plain.lower() + " work." if vids else "Selected " + plain.lower() + " projects. These slots fill in as work is cleared for publication."}</p>
     </div>
     <div class="grid-work grid-work-3">
 {slots}
