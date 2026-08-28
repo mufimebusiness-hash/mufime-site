@@ -257,14 +257,12 @@ VIDEOS = {
         {"drive": "1anLTcuq8XAfr8viLLxP3bOYDmYHDwYeP",
          "title": "Documentary Edit",
          "client": "Documentary"},
-        # NDA work: edited for the channel, not publicly credited on the video,
-        # so the client is kept off the site rather than naming the channel.
         {"yt": "XADZH4mpYmo",
          "title": "Business Documentary Edit",
-         "client": "Confidential Client"},
+         "client": "eTechvolution"},
         {"yt": "zXWOWnfimZY",
          "title": "Documentary Series Edit",
-         "client": "Confidential Client"},
+         "client": "BE AMAZED · 13.5M Subscribers"},
     ],
 }
 
