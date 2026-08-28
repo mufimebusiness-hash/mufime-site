@@ -146,14 +146,52 @@ CTA_SEC = """
 """ % ("%s", "%s", EMAIL, EMAIL)
 
 
-def slot(prefix, n, cat, wide=True):
+PLAY_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+             '<path d="M8 5v14l11-7z"/></svg>')
+
+
+def slot(prefix, n, cat, wide=True, video=None):
+    """One portfolio card.
+
+    Without `video` it renders the designed placeholder. With one it renders
+    the real project: poster, play badge, title and client. `video` is a dict
+    holding either "drive" (Google Drive file ID) or "yt" (YouTube ID), plus
+    an optional "title" and "client".
+    """
     ratio = "slot-16x9" if wide else "slot-9x16"
     d = f" d{n-1}" if 1 < n <= 5 else ""
-    return f"""        <a class="slot {ratio} rv{d}" href="/work.html" data-video-id="REPLACE_WITH_{prefix}_{n:02d}">
+    chip = f"{prefix[:2]}—{n:02d}"
+
+    if not video:
+        return f"""        <a class="slot {ratio} rv{d}" href="/work.html" data-video-id="REPLACE_WITH_{prefix}_{n:02d}">
           <div class="slot-centre"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><span>Slot {n:02d}</span></div>
           <div class="slot-body">
-            <div class="slot-top"><span class="slot-id">{prefix[:2]}—{n:02d}</span><span class="slot-cat">{cat}</span></div>
+            <div class="slot-top"><span class="slot-id">{chip}</span><span class="slot-cat">{cat}</span></div>
             <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
+          </div>
+        </a>"""
+
+    title = html.escape(video.get("title") or "Project")
+    client = html.escape(video.get("client") or cat)
+
+    if video.get("drive"):
+        vid = video["drive"]
+        attr = f'data-drive-id="{vid}"'
+        href = f"https://drive.google.com/file/d/{vid}/view"
+        poster = f"https://drive.google.com/thumbnail?id={vid}&amp;sz=w800"
+    else:
+        vid = video["yt"]
+        attr = f'data-video-id="{vid}"'
+        href = f"https://www.youtube.com/watch?v={vid}"
+        poster = f"https://img.youtube.com/vi/{vid}/hqdefault.jpg"
+
+    return f"""        <a class="slot {ratio} filled rv{d}" href="{href}" target="_blank" rel="noopener"
+           {attr} data-title="{title}" data-track="Portfolio Project Opened">
+          <img src="{poster}" alt="{title}" loading="lazy">
+          <span class="slot-play">{PLAY_ICON}</span>
+          <div class="slot-body">
+            <div class="slot-top"><span class="slot-id">{chip}</span><span class="slot-cat">{cat}</span></div>
+            <div class="slot-info"><h4>{title}</h4><p>{client}</p></div>
           </div>
         </a>"""
 
@@ -207,6 +245,22 @@ PROCESS = [
 ]
 
 
+# ----------------------------------------------------------------- real videos
+#
+# Real project videos, keyed by service-page slug. Each list fills that page's
+# slots in order; any slot without an entry keeps its designed placeholder.
+# Give each entry EITHER "drive" (Google Drive file ID, shared as
+# "Anyone with the link - Viewer") OR "yt" (YouTube video ID).
+
+VIDEOS = {
+    "documentary-editing": [
+        {"drive": "1anLTcuq8XAfr8viLLxP3bOYDmYHDwYeP",
+         "title": "Documentary Edit",
+         "client": "Documentary"},
+    ],
+}
+
+
 # ----------------------------------------------------------------- writers
 
 def write(path, content):
@@ -218,7 +272,10 @@ def write(path, content):
 def build_service(slug, name, desc, cat):
     plain = html.unescape(name)
     prefix = slug.upper().replace("-", "_")[:12]
-    slots = "\n".join(slot(prefix, i, cat) for i in range(1, 7))
+    vids = VIDEOS.get(slug, [])
+    slots = "\n".join(
+        slot(prefix, i, cat, video=vids[i - 1] if i <= len(vids) else None)
+        for i in range(1, 7))
     body = f"""
 <section class="page-hero">
   <div class="wrap">

@@ -49,7 +49,9 @@
   if (scrim) scrim.addEventListener('click', function () { setNav(false); });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') setNav(false);
+    if (e.key !== 'Escape') return;
+    setNav(false);
+    closeLightbox();
   });
 
   // Selecting a section: close the menu, then scroll.
@@ -138,6 +140,57 @@
         '" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       frame.classList.add('playing');
       track('Showreel Played', { video: label });
+    });
+  });
+
+  /* ---------------------------------------------------------
+     Portfolio lightbox — a filled .slot opens the video at size
+     rather than sending the visitor off to Drive or YouTube.
+     Without JS the card stays an ordinary link, so it still works.
+     --------------------------------------------------------- */
+  var lb, lbBody, lbReturn;
+
+  function closeLightbox() {
+    if (!lb || !lb.classList.contains('open')) return;
+    lb.classList.remove('open');
+    lbBody.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lbReturn) lbReturn.focus({ preventScroll: true });
+  }
+
+  function buildLightbox() {
+    lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Project video');
+    lb.innerHTML =
+      '<button class="lb-close" type="button" aria-label="Close video">' +
+      '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '<div class="lb-body"></div>';
+    document.body.appendChild(lb);
+    lbBody = lb.querySelector('.lb-body');
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb) closeLightbox();
+    });
+    lb.querySelector('.lb-close').addEventListener('click', closeLightbox);
+  }
+
+  document.querySelectorAll('a.slot[data-drive-id], a.slot[data-video-id]').forEach(function (card) {
+    var src = embedUrl(card);
+    if (!src) return;                       // placeholder card, leave it alone
+    card.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      if (!lb) buildLightbox();
+      lbReturn = card;
+      var label = (card.getAttribute('data-title') || 'Project').replace(/"/g, '');
+      lbBody.innerHTML =
+        '<iframe src="' + src + '" title="' + label +
+        '" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lb.querySelector('.lb-close').focus({ preventScroll: true });
     });
   });
 
