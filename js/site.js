@@ -94,20 +94,47 @@
   /* ---------------------------------------------------------
      Showreel + any click-to-play frame
      --------------------------------------------------------- */
+  function ready(v) { return v && v.indexOf('REPLACE_WITH') !== 0; }
+
+  // A frame carries either data-video-id (YouTube) or data-drive-id (Google
+  // Drive). Drive files must be shared as "Anyone with the link - Viewer".
+  function embedUrl(frame) {
+    var drive = frame.getAttribute('data-drive-id');
+    if (ready(drive)) return 'https://drive.google.com/file/d/' + drive + '/preview';
+    var yt = frame.getAttribute('data-video-id');
+    if (ready(yt)) {
+      return 'https://www.youtube.com/embed/' + yt +
+             '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    }
+    return null;
+  }
+
+  // Drive ships no thumbnail with the embed, so pull its preview image in.
+  // If that image fails to load we drop it and the designed placeholder stays.
+  document.querySelectorAll('[data-drive-id]').forEach(function (frame) {
+    var id = frame.getAttribute('data-drive-id');
+    if (!ready(id) || frame.querySelector('img')) return;
+    var img = document.createElement('img');
+    img.alt = frame.getAttribute('data-title') || '';
+    img.loading = 'lazy';
+    img.onerror = function () { img.remove(); };
+    img.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1280';
+    frame.insertBefore(img, frame.firstChild);
+  });
+
   document.querySelectorAll('[data-play]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var frame = btn.closest('[data-video-id]');
+      var frame = btn.closest('[data-video-id], [data-drive-id]');
       if (!frame) return;
-      var id = frame.getAttribute('data-video-id');
-      if (!id || id.indexOf('REPLACE_WITH') === 0) {
+      var src = embedUrl(frame);
+      if (!src) {
         // Placeholder slot — nothing to play yet, stay put rather than erroring.
         frame.classList.add('awaiting');
         return;
       }
-      var label = frame.getAttribute('data-title') || 'Showreel';
+      var label = (frame.getAttribute('data-title') || 'Showreel').replace(/"/g, '');
       frame.innerHTML =
-        '<iframe src="https://www.youtube.com/embed/' + id +
-        '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + label +
+        '<iframe src="' + src + '" title="' + label +
         '" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
       frame.classList.add('playing');
       track('Showreel Played', { video: label });
