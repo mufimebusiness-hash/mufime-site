@@ -254,6 +254,16 @@ VIDEOS = {
          "title": "Performance Content Edit",
          "client": "Performance Content"},
     ],
+    "tech-explainers": [
+        {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
+         "title": "Tech Explainer Edit",
+         "client": "Tech Explainers"},
+    ],
+    "saas-product-demos": [
+        {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
+         "title": "SaaS Product Demo Edit",
+         "client": "SaaS & B2B"},
+    ],
     "youtube-shorts-ig-reels": [
         {"drive": "19w4bt19n-Emw_AE_VGz9VZK91F2ZDBFF",
          "title": "Short-Form Edit",
