@@ -443,7 +443,6 @@ def build_service(slug, name, desc, cat):
       <a class="spec" href="/services/2d-animation.html">2D Animation</a>
       <a class="spec" href="/services/3d-animation.html">3D Animation</a>
       <a class="spec" href="/services/vfx.html">VFX</a>
-      <a class="spec" href="/services/sound-design.html">Sound Design</a>
       <a class="spec" href="/services.html">All services →</a>
     </div>
   </div>
@@ -508,9 +507,13 @@ def build_process(slug, name, num, desc, steps):
           head(f"{name}: Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
 
 
+HIDDEN_FROM_LISTING = {"advanced-post-production", "sound-design"}
+
+
 def build_services_hub():
-    pillars = SERVICES[:5]
-    rest = SERVICES[5:]
+    visible = [s for s in SERVICES if s[0] not in HIDDEN_FROM_LISTING]
+    pillars = visible[:5]
+    rest = visible[5:]
 
     pcards = "\n".join(f"""      <a class="pillar rv" href="/services/{s}.html">
         <span class="n">{i+1:02d}</span>
