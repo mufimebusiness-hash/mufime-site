@@ -253,6 +253,9 @@ VIDEOS = {
         {"drive": "1UuNggPY_suRlgu6iUXueW2_9SqfmMPn0",
          "title": "Performance Content Edit",
          "client": "Performance Content"},
+        {"drive": "1-NQAwQ8AImoFQVq5jRWI5bvwH-avuIm9",
+         "title": "Performance Content Edit",
+         "client": "Performance Content"},
     ],
     "tech-explainers": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
