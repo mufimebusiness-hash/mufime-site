@@ -706,7 +706,9 @@ body.nav-open .nav-quick { opacity: 0; visibility: hidden; }
   display: grid; place-items: center;
   font-size: 0.72rem; font-weight: 700; color: var(--coral-light);
   flex-shrink: 0;
+  overflow: hidden;
 }
+.quote-card .who .av img { width: 100%; height: 100%; object-fit: cover; }
 .quote-card .who b { display: block; font-size: 0.9rem; font-weight: 700; color: var(--white); }
 .quote-card .who span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--grey-dim); }
 
