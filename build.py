@@ -262,6 +262,9 @@ VIDEOS = {
         {"drive": "1z8jBGaXCHeBs3LZQoOslvWCIFPz8ooPl",
          "title": "Performance Content Edit",
          "client": "Performance Content"},
+        {"drive": "1qOiRvCd3tIyGP61_R2jXd-NqTpV-1xht",
+         "title": "Performance Content Edit",
+         "client": "Performance Content"},
     ],
     "2d-animation": [
         {"yt": "2awAZH6GCDs",
@@ -282,6 +285,11 @@ VIDEOS = {
         {"drive": "1BDkPCrLimCi-x7KQJeWhSYJAdZjotzoM",
          "title": "2D Animation Edit",
          "client": "2D Animation"},
+    ],
+    "motion-graphics": [
+        {"drive": "1TlDMxllf3Z6Pv-cFLuIoFTz4WIj-S8X2",
+         "title": "Motion Graphics Edit",
+         "client": "Motion Graphics"},
     ],
     "tech-explainers": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
