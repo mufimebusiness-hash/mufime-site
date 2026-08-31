@@ -601,6 +601,7 @@ body.nav-open .nav-quick { opacity: 0; visibility: hidden; }
 /* ---------- Filled slot: real project with a poster ---------- */
 
 .slot.filled { background: var(--card); }
+.slot.filled .slot-body { justify-content: flex-end; }
 .slot.filled::after {
   content: "";
   position: absolute; inset: 0; z-index: 1;
