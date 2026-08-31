@@ -249,6 +249,23 @@ PROCESS = [
 # "Anyone with the link - Viewer") OR "yt" (YouTube video ID).
 
 VIDEOS = {
+    "youtube-shorts-ig-reels": [
+        {"drive": "19w4bt19n-Emw_AE_VGz9VZK91F2ZDBFF",
+         "title": "Short-Form Edit",
+         "client": "Client"},
+        {"drive": "1nP97KM51Sk-eMnJaWbaTMu5g93pKyPcV",
+         "title": "Short-Form Edit",
+         "client": "Client"},
+        {"drive": "1Xu4TQUe6hZ5WMDVtf3JujSP8oiCvObF2",
+         "title": "Short-Form Edit",
+         "client": "Client"},
+        {"yt": "TTantiiXvn8",
+         "title": "Shafiq Uncle and the Dunning-Kruger Effect",
+         "client": "Mufime"},
+        {"yt": "d-6JZxQZpCk",
+         "title": "Honda Nissan Merger: Bold Move or Nissan's Downfall?",
+         "client": "eTechvolution"},
+    ],
     "story-driven-youtube": [
         {"yt": "-Zza4aA9z90",
          "title": "How A Tea Cup Changed China's History",
