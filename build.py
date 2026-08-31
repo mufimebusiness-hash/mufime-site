@@ -282,8 +282,9 @@ def build_service(slug, name, desc, cat):
     plain = html.unescape(name)
     prefix = slug.upper().replace("-", "_")[:12]
     vids = VIDEOS.get(slug, [])
+    wide = slug not in ("youtube-shorts-ig-reels", "performance-ads")
     slots = "\n".join(
-        slot(prefix, i, cat, video=vids[i - 1] if i <= len(vids) else None)
+        slot(prefix, i, cat, wide=wide, video=vids[i - 1] if i <= len(vids) else None)
         for i in range(1, 7))
     body = f"""
 <section class="page-hero">
