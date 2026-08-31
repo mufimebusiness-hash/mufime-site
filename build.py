@@ -249,6 +249,11 @@ PROCESS = [
 # "Anyone with the link - Viewer") OR "yt" (YouTube video ID).
 
 VIDEOS = {
+    "performance-ads": [
+        {"drive": "1UuNggPY_suRlgu6iUXueW2_9SqfmMPn0",
+         "title": "Performance Content Edit",
+         "client": "Performance Content"},
+    ],
     "youtube-shorts-ig-reels": [
         {"drive": "19w4bt19n-Emw_AE_VGz9VZK91F2ZDBFF",
          "title": "Short-Form Edit",
@@ -494,8 +499,12 @@ def build_work():
     cats = [("Long-Form", "LONGFORM"), ("Short-Form", "SHORTFORM"), ("Performance", "PERFORMANCE"),
             ("SaaS &amp; B2B", "SAASB2B"), ("Motion", "MOTION"), ("3D / VFX", "VFX3D")]
     blocks = ""
+    work_video_slugs = {"PERFORMANCE": "performance-ads"}
     for cat, pref in cats:
-        slots = "\n".join(slot(pref, i, cat) for i in range(1, 4))
+        vids = VIDEOS.get(work_video_slugs.get(pref), []) if pref in work_video_slugs else []
+        slots = "\n".join(
+            slot(pref, i, cat, video=vids[i - 1] if i <= len(vids) else None)
+            for i in range(1, 4))
         blocks += f"""
     <div class="cat-block">
       <p class="cat-label rv">{cat}</p>
