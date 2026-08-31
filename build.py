@@ -250,6 +250,29 @@ PROCESS = [
 # "Anyone with the link - Viewer") OR "yt" (YouTube video ID).
 
 VIDEOS = {
+    "story-driven-youtube": [
+        {"yt": "-Zza4aA9z90",
+         "title": "How A Tea Cup Changed China's History",
+         "client": "Junaid Akram Shorts"},
+        {"yt": "w5oh1RCGUn4",
+         "title": "Video Essay Edit",
+         "client": "Paths Of Meaning"},
+        {"yt": "XADZH4mpYmo",
+         "title": "Business Documentary Edit",
+         "client": "eTechvolution"},
+        {"yt": "rwvzM3mHqxw",
+         "title": "Tesla Safety Deep-Dive Edit",
+         "client": "eTechvolution"},
+        {"drive": "1DyXAnESiMpyn1Zfp-gJPzqLeyqkbxEi5",
+         "title": "Project Edit",
+         "client": "Client"},
+        {"drive": "1mjDj9_Oomn1fljaLeWe0XazkpzMyql-V",
+         "title": "Project Edit",
+         "client": "Client"},
+        {"yt": "xHgxB6Rpr6E",
+         "title": "Retool vs Bubble Comparison Edit",
+         "client": "Volo Humnytskyi"},
+    ],
     "documentary-editing": [
         {"drive": "1anLTcuq8XAfr8viLLxP3bOYDmYHDwYeP",
          "title": "Documentary Edit",
@@ -285,7 +308,7 @@ def build_service(slug, name, desc, cat):
     wide = slug not in ("youtube-shorts-ig-reels", "performance-ads")
     slots = "\n".join(
         slot(prefix, i, cat, wide=wide, video=vids[i - 1] if i <= len(vids) else None)
-        for i in range(1, 7))
+        for i in range(1, max(6, len(vids)) + 1))
     body = f"""
 <section class="page-hero">
   <div class="wrap">
