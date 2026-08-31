@@ -139,7 +139,7 @@ CTA_SEC = """
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
       <a class="btn btn-line" href="/#quote" data-track="Get a Quote Clicked">Get a Quote</a>
     </div>
-    <p class="alt-contact rv">Larger project? <a href="/book.html">Book a call</a>, or email <a href="mailto:%s">%s</a></p>
+    <p class="alt-contact rv">Larger project? Email us at <a href="mailto:%s">%s</a></p>
   </div>
 </section>
 """ % ("%s", "%s", EMAIL, EMAIL)
@@ -230,7 +230,7 @@ PROCESS = [
      "Editing, motion graphics, sound design, VFX, animation and finishing, with quality control before anything ships.",
      [("First cut", "A named editor builds the edit against the agreed brief and structure."),
       ("Motion, sound and effects", "Graphics, sound design, VFX and animation are layered in according to the production level."),
-      ("Quality control", "A second editor reviews pacing, audio, captions and export settings before you see it."),
+      ("Quality control", "A Senior Editor reviews the finished edit for pacing, audio, captions and export quality, then checks it again across two rounds of review before it reaches you."),
       ("Revision and delivery", "One consolidated round of feedback, then final files in the formats you need.")]),
     ("content-strategy", "Content Strategy", "03",
      "Planning content around your audience, objectives and distribution, so each video serves something bigger.",
