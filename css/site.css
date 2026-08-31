@@ -512,6 +512,7 @@ body.nav-open .nav-quick { opacity: 0; visibility: hidden; }
 .brand-slot svg { width: 15px; height: 15px; fill: none; stroke: var(--coral); stroke-width: 1.5; opacity: .7; }
 .brand-slot.filled { border-style: solid; color: var(--white); }
 .brand-slot img { width: 28px; height: 28px; object-fit: cover; border-radius: 7px; flex-shrink: 0; }
+.brand-slot img.round { border-radius: 50%; }
 
 .team-item {
   flex: 0 0 auto;
