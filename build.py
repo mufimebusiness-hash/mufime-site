@@ -139,7 +139,7 @@ CTA_SEC = """
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
       <a class="btn btn-line" href="/#quote" data-track="Get a Quote Clicked">Get a Quote</a>
     </div>
-    <p class="alt-contact rv">Larger project? Email us at <a href="mailto:%s">%s</a></p>
+    <p class="alt-contact rv">Larger project? Email us at <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=%s" target="_blank" rel="noopener">%s</a></p>
   </div>
 </section>
 """ % ("%s", "%s", EMAIL, EMAIL)
