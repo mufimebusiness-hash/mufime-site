@@ -160,13 +160,11 @@ def slot(prefix, n, cat, wide=True, video=None):
     """
     ratio = "slot-16x9" if wide else "slot-9x16"
     d = f" d{n-1}" if 1 < n <= 5 else ""
-    chip = f"{prefix[:2]}—{n:02d}"
 
     if not video:
         return f"""        <a class="slot {ratio} rv{d}" href="/work.html" data-video-id="REPLACE_WITH_{prefix}_{n:02d}">
           <div class="slot-centre"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><span>Slot {n:02d}</span></div>
           <div class="slot-body">
-            <div class="slot-top"><span class="slot-id">{chip}</span><span class="slot-cat">{cat}</span></div>
             <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
           </div>
         </a>"""
@@ -190,7 +188,6 @@ def slot(prefix, n, cat, wide=True, video=None):
           <img src="{poster}" alt="{title}" loading="lazy">
           <span class="slot-play">{PLAY_ICON}</span>
           <div class="slot-body">
-            <div class="slot-top"><span class="slot-id">{chip}</span><span class="slot-cat">{cat}</span></div>
             <div class="slot-info"><h4>{title}</h4><p>{client}</p></div>
           </div>
         </a>"""
