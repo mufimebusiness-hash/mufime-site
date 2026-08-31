@@ -256,6 +256,14 @@ VIDEOS = {
         {"drive": "1-NQAwQ8AImoFQVq5jRWI5bvwH-avuIm9",
          "title": "Performance Content Edit",
          "client": "Performance Content"},
+        {"drive": "1P3bVg1ZEvkGADVNJ2APRity1J6w6I7K7",
+         "title": "Performance Content Edit",
+         "client": "Performance Content"},
+    ],
+    "2d-animation": [
+        {"yt": "2awAZH6GCDs",
+         "title": "2D Animation Edit",
+         "client": "2D Animation"},
     ],
     "tech-explainers": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
@@ -263,6 +271,9 @@ VIDEOS = {
          "client": "Tech Explainers"},
         {"drive": "1fUTQYKTPxOvpZpvcVzTLgQRqi6CMNX7f",
          "title": "Tech Explainer Edit",
+         "client": "Tech Explainers"},
+        {"yt": "OVsp_p7oRCI",
+         "title": "Educational Explainer Edit",
          "client": "Tech Explainers"},
     ],
     "saas-product-demos": [
