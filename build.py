@@ -258,6 +258,9 @@ VIDEOS = {
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
          "title": "Tech Explainer Edit",
          "client": "Tech Explainers"},
+        {"drive": "1fUTQYKTPxOvpZpvcVzTLgQRqi6CMNX7f",
+         "title": "Tech Explainer Edit",
+         "client": "Tech Explainers"},
     ],
     "saas-product-demos": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
