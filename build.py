@@ -279,6 +279,9 @@ VIDEOS = {
         {"yt": "4SainMQhd-U",
          "title": "2D Animation Edit",
          "client": "2D Animation"},
+        {"drive": "1BDkPCrLimCi-x7KQJeWhSYJAdZjotzoM",
+         "title": "2D Animation Edit",
+         "client": "2D Animation"},
     ],
     "tech-explainers": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
