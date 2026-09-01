@@ -66,10 +66,9 @@ NAV = f"""
   <span class="tag">Menu</span>
   <div class="nav-links">
     <a href="/#home"><span>01</span> Home</a>
-    <a href="/work.html"><span>02</span> Work</a>
-    <a href="/services.html"><span>03</span> Services</a>
-    <a href="/#process"><span>04</span> Process</a>
-    <a href="/#contact"><span>05</span> Contact</a>
+    <a href="/services.html"><span>02</span> Services</a>
+    <a href="/#process"><span>03</span> Process</a>
+    <a href="/#contact"><span>04</span> Contact</a>
   </div>
   <div class="nav-foot">
     <p>Tell us what you're building and we'll tell you what it takes.</p>
@@ -89,7 +88,6 @@ FOOTER = f"""
       <div class="foot-col">
         <h4>Navigate</h4>
         <a href="/#home">Home</a>
-        <a href="/work.html">Work</a>
         <a href="/services.html">Services</a>
         <a href="/#process">Process</a>
         <a href="/#contact">Contact</a>
@@ -160,7 +158,7 @@ def slot(prefix, n, cat, wide=True, video=None):
     d = f" d{n-1}" if 1 < n <= 5 else ""
 
     if not video:
-        return f"""        <a class="slot {ratio} rv{d}" href="/work.html" data-video-id="REPLACE_WITH_{prefix}_{n:02d}">
+        return f"""        <a class="slot {ratio} rv{d}" href="/services.html" data-video-id="REPLACE_WITH_{prefix}_{n:02d}">
           <div class="slot-centre"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><span>Slot {n:02d}</span></div>
           <div class="slot-body">
             <div class="slot-info"><h4>Project Title</h4><p>Client · Category</p></div>
@@ -560,48 +558,6 @@ def build_services_hub():
           + NAV + body + FOOTER)
 
 
-def build_work():
-    cats = [("Long-Form", "LONGFORM"), ("Short-Form", "SHORTFORM"), ("Performance", "PERFORMANCE"),
-            ("SaaS &amp; B2B", "SAASB2B"), ("Motion", "MOTION"), ("3D / VFX", "VFX3D")]
-    blocks = ""
-    work_video_slugs = {"PERFORMANCE": "performance-ads"}
-    for cat, pref in cats:
-        vids = VIDEOS.get(work_video_slugs.get(pref), []) if pref in work_video_slugs else []
-        slots = "\n".join(
-            slot(pref, i, cat, video=vids[i - 1] if i <= len(vids) else None)
-            for i in range(1, 4))
-        blocks += f"""
-    <div class="cat-block">
-      <p class="cat-label rv">{cat}</p>
-      <div class="grid-work grid-work-3">
-{slots}
-      </div>
-    </div>
-"""
-    body = f"""
-<section class="page-hero">
-  <div class="wrap">
-    <a class="back" href="/"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Home</a>
-    <span class="tag" style="display:block;margin-top:18px;">Portfolio</span>
-    <h1>The work</h1>
-    <p class="lede">Projects grouped by what they are. Each slot holds a video, thumbnail, title, client and category, and they fill in as work is cleared for publication.</p>
-    <div class="btn-row">
-      <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-{blocks}
-  </div>
-</section>
-""" + (CTA_SEC % ("Want work like this?", "Send a clip and a short brief and we'll cut a free sample so you can judge it for yourself."))
-
-    write("work.html",
-          head("Work: Mufime", "Selected post-production work from Mufime across long-form, short-form, performance content, SaaS and B2B, motion graphics, 3D and VFX.", "work.html")
-          + NAV + body + FOOTER)
-
 
 def build_redirect():
     # plans.html was the old pricing URL — kept alive as a redirect to home
@@ -621,12 +577,12 @@ def build_redirect():
 
 
 def build_seo():
-    pages = ["", "work.html", "services.html", "book.html", "join-team.html"]
+    pages = ["", "services.html", "book.html", "join-team.html"]
     pages += [f"services/{s}.html" for s, *_ in SERVICES]
     pages += [f"process/{s}.html" for s, *_ in PROCESS]
     urls = "\n".join(
         f"  <url><loc>{SITE}/{p}</loc><changefreq>monthly</changefreq>"
-        f"<priority>{'1.0' if p == '' else '0.8' if p in ('work.html','services.html') else '0.6'}</priority></url>"
+        f"<priority>{'1.0' if p == '' else '0.8' if p == 'services.html' else '0.6'}</priority></url>"
         for p in pages)
     write("sitemap.xml",
           '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -644,8 +600,7 @@ if __name__ == "__main__":
     for args in PROCESS:
         build_process(*args)
     build_services_hub()
-    build_work()
     build_redirect()
     build_seo()
     print(f"Built {len(SERVICES)} service pages, {len(PROCESS)} process pages,")
-    print("plus services.html, work.html, plans.html redirect, sitemap.xml, robots.txt")
+    print("plus services.html, plans.html redirect, sitemap.xml, robots.txt")
