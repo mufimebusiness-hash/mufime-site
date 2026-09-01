@@ -68,9 +68,8 @@ NAV = f"""
     <a href="/#home"><span>01</span> Home</a>
     <a href="/work.html"><span>02</span> Work</a>
     <a href="/services.html"><span>03</span> Services</a>
-    <a href="/pricing.html"><span>04</span> Pricing</a>
-    <a href="/#process"><span>05</span> Process</a>
-    <a href="/#contact"><span>06</span> Contact</a>
+    <a href="/#process"><span>04</span> Process</a>
+    <a href="/#contact"><span>05</span> Contact</a>
   </div>
   <div class="nav-foot">
     <p>Tell us what you're building and we'll tell you what it takes.</p>
@@ -203,7 +202,6 @@ SERVICES = [
     ("motion-graphics",          "Motion Graphics",          "Titles, lower-thirds, kinetic type and animated callouts that make a deliverable feel finished.", "Motion"),
     ("2d-animation",             "2D Animation",             "Explainers, character work and illustrated sequences built frame by frame.", "2D"),
     ("3d-animation",             "3D Animation",             "Product renders and dimensional sequences with real depth, lighting and camera movement.", "3D"),
-    ("vfx",                      "VFX",                      "Compositing, tracking, cleanup and effects work that holds up on a second watch.", "VFX"),
     ("sound-design",             "Sound Design",             "Mixing, SFX, dialogue cleanup and audio polish that makes a cut feel as good as it looks.", "Sound"),
     ("short-form-content",       "Short-Form Content",       "Fast, punchy cuts built to hook in the first second and hold attention to the end.", "Short-Form"),
     ("documentary-editing",      "Documentary Editing",      "Long-form storytelling with the pacing, sound design and structure that keeps people watching.", "Documentary"),
@@ -440,7 +438,6 @@ def build_service(slug, name, desc, cat):
       <a class="spec" href="/services/motion-graphics.html">Motion Graphics</a>
       <a class="spec" href="/services/2d-animation.html">2D Animation</a>
       <a class="spec" href="/services/3d-animation.html">3D Animation</a>
-      <a class="spec" href="/services/vfx.html">VFX</a>
       <a class="spec" href="/services.html">All services →</a>
     </div>
   </div>
@@ -495,11 +492,10 @@ def build_process(slug, name, num, desc, steps):
     </div>
     <div class="spec-row rv" style="margin-top:0;padding-top:0;border-top:0;">
       {' '.join(others)}
-      <a class="spec" href="/pricing.html">See pricing →</a>
     </div>
   </div>
 </section>
-""" + (CTA_SEC % ("Ready to start?", "Send a clip and a short brief and we'll come back with a free sample edit, or full pricing if you'd rather have the number first."))
+""" + (CTA_SEC % ("Ready to start?", "Send a clip and a short brief and we'll come back with a free sample edit."))
 
     write(f"process/{slug}.html",
           head(f"{name}: Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
@@ -536,7 +532,6 @@ def build_services_hub():
     <p class="lede">Five core pillars, plus the specialist craft that sits underneath them. Every one has its own page with examples.</p>
     <div class="btn-row">
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
-      <a class="btn btn-line" href="/pricing.html">See Pricing</a>
     </div>
   </div>
 </section>
@@ -592,7 +587,6 @@ def build_work():
     <p class="lede">Projects grouped by what they are. Each slot holds a video, thumbnail, title, client and category, and they fill in as work is cleared for publication.</p>
     <div class="btn-row">
       <a class="btn btn-key" href="/#sample" data-track="Free Sample CTA Clicked">Get a Free Sample Edit</a>
-      <a class="btn btn-line" href="/pricing.html">See Pricing</a>
     </div>
   </div>
 </section>
@@ -610,28 +604,29 @@ def build_work():
 
 
 def build_redirect():
-    # plans.html was the old pricing URL — keep it alive.
+    # plans.html was the old pricing URL — kept alive as a redirect to home
+    # now that pricing has been pulled from the site.
     write("plans.html", """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Pricing: Mufime</title>
-<link rel="canonical" href="https://mufime.com/pricing.html">
-<meta http-equiv="refresh" content="0; url=/pricing.html">
-<script>location.replace('/pricing.html');</script>
+<title>Mufime</title>
+<link rel="canonical" href="https://mufime.com/">
+<meta http-equiv="refresh" content="0; url=/">
+<script>location.replace('/');</script>
 </head>
-<body><p>Redirecting to <a href="/pricing.html">pricing</a>.</p></body>
+<body><p>Redirecting to <a href="/">mufime.com</a>.</p></body>
 </html>
 """)
 
 
 def build_seo():
-    pages = ["", "work.html", "services.html", "pricing.html", "book.html"]
+    pages = ["", "work.html", "services.html", "book.html"]
     pages += [f"services/{s}.html" for s, *_ in SERVICES]
     pages += [f"process/{s}.html" for s, *_ in PROCESS]
     urls = "\n".join(
         f"  <url><loc>{SITE}/{p}</loc><changefreq>monthly</changefreq>"
-        f"<priority>{'1.0' if p == '' else '0.8' if p in ('work.html','services.html','pricing.html') else '0.6'}</priority></url>"
+        f"<priority>{'1.0' if p == '' else '0.8' if p in ('work.html','services.html') else '0.6'}</priority></url>"
         for p in pages)
     write("sitemap.xml",
           '<?xml version="1.0" encoding="UTF-8"?>\n'
