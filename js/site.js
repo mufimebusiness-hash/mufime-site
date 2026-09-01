@@ -255,7 +255,7 @@
             status.className = 'form-status ok';
             status.textContent = 'Got it. We\'ll come back to you at the email you gave us, usually within one working day.';
             form.reset();
-            track(name === 'sample' ? 'Free Sample Requested' : 'Quote Form Submitted');
+            track(name === 'sample' ? 'Free Sample Requested' : name === 'join' ? 'Join Team Form Submitted' : 'Quote Form Submitted');
           } else {
             throw new Error(data.message || 'Submission failed');
           }

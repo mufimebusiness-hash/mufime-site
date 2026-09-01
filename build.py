@@ -108,7 +108,7 @@ FOOTER = f"""
         <h4>Are You an Editor?</h4>
         <p>We're always looking for senior editors, motion designers and animators who want steady, well-paid client work.</p>
       </div>
-      <a class="btn btn-key" href="mailto:{EMAIL}?subject=Join%20the%20Team%20at%20Mufime" data-track="Join the Team Clicked">Join the Team</a>
+      <a class="btn btn-key" href="/join-team.html" data-track="Join the Team Clicked">Join the Team</a>
     </div>
 
     <div class="foot-base">
@@ -621,7 +621,7 @@ def build_redirect():
 
 
 def build_seo():
-    pages = ["", "work.html", "services.html", "book.html"]
+    pages = ["", "work.html", "services.html", "book.html", "join-team.html"]
     pages += [f"services/{s}.html" for s, *_ in SERVICES]
     pages += [f"process/{s}.html" for s, *_ in PROCESS]
     urls = "\n".join(
