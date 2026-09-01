@@ -282,6 +282,11 @@ VIDEOS = {
          "title": "2D Animation Edit",
          "client": "2D Animation"},
     ],
+    "3d-animation": [
+        {"drive": "16CYtBOD_Rb9NmcA2YuFnv8LbmEL0eml9",
+         "title": "3D Animation Edit",
+         "client": "3D Animation"},
+    ],
     "motion-graphics": [
         {"drive": "1TlDMxllf3Z6Pv-cFLuIoFTz4WIj-S8X2",
          "title": "Motion Graphics Edit",
@@ -331,6 +336,9 @@ VIDEOS = {
          "client": "Client"},
         {"drive": "1c4KozPrXRPJ49eqaJHszxk4cLbil_wke",
          "title": "Short-Form Edit",
+         "client": "Client"},
+        {"drive": "16stcOSWzcXR8S-QplvToBRi5PL2Hkp-1",
+         "title": "Lifestyle Reel Edit",
          "client": "Client"},
     ],
     "story-driven-youtube": [
