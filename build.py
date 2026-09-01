@@ -196,21 +196,16 @@ SERVICES = [
     ("youtube-shorts-ig-reels",  "Short-Form",               "Hooks, captions and rhythm engineered for the first second, built for Shorts, Reels and TikTok.", "Short-Form"),
     ("performance-ads",          "Performance Content",      "Ad creative built to be tested and iterated: variants, hooks and cutdowns that answer to real numbers.", "Performance"),
     ("saas-product-demos",       "SaaS &amp; B2B",           "Product demos, launch films and explainers that make complex software look clear and enterprise-ready.", "SaaS &amp; B2B"),
-    ("advanced-post-production", "Advanced Post-Production", "Multi-stage finishing for work that needs more than a single pass: grading, compositing, mix and delivery.", "Advanced"),
     ("motion-graphics",          "Motion Graphics",          "Titles, lower-thirds, kinetic type and animated callouts that make a deliverable feel finished.", "Motion"),
     ("2d-animation",             "2D Animation",             "Explainers, character work and illustrated sequences built frame by frame.", "2D"),
     ("3d-animation",             "3D Animation",             "Product renders and dimensional sequences with real depth, lighting and camera movement.", "3D"),
-    ("sound-design",             "Sound Design",             "Mixing, SFX, dialogue cleanup and audio polish that makes a cut feel as good as it looks.", "Sound"),
     ("documentary-editing",      "Documentary Editing",      "Long-form storytelling with the pacing, sound design and structure that keeps people watching.", "Documentary"),
     ("tech-explainers",          "Tech Explainers",          "Complex ideas and products broken down into clean, easy-to-follow videos.", "Explainer"),
     ("educational-content",      "Educational Content",      "Concepts taught clearly on screen: structured, paced and visualised so ideas actually land.", "Educational"),
-    ("tech-reviews-unboxings",   "Tech Reviews &amp; Unboxings", "Reviews, unboxings and tech coverage edited with pace and polish.", "Review"),
     ("true-crime-storytelling",  "Investigative Storytelling", "Tension-building edits, pacing and sound design that keep viewers on edge.", "Investigative"),
-    ("founder-business-channels","Founder &amp; Business Channels", "Consistent, on-brand editing for founders and creators growing a channel.", "Founder"),
     ("sales-videos-vsl",         "Sales Videos (VSLs)",      "Persuasion-first edits built to turn viewers into customers.", "VSL"),
     ("brand-ad-films",           "Brand &amp; Ad Films",     "Concept-to-cut brand films and paid ad creative built to drive action.", "Brand"),
     ("podcast-talking-head",     "Talking Head Video Editing", "Full episode edits and scroll-stopping clips cut from raw interview footage.", "Talking Head"),
-    ("color-finishing",          "Colour &amp; Finishing",   "Grading and final polish that gives every deliverable a consistent, premium look.", "Finishing"),
 ]
 
 PROCESS = [
@@ -544,7 +539,7 @@ def build_process(slug, name, num, desc, steps):
           head(f"{name}: Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
 
 
-HIDDEN_FROM_LISTING = {"advanced-post-production", "sound-design", "color-finishing"}
+HIDDEN_FROM_LISTING = set()
 
 
 def build_services_hub():
