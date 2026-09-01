@@ -243,6 +243,17 @@ PROCESS = [
 # "Anyone with the link - Viewer") OR "yt" (YouTube video ID).
 
 VIDEOS = {
+    "podcast-talking-head": [
+        {"drive": "1gAJJFt9pkL_HinPCj1TbX1nnX4YTwfdc",
+         "title": "Talking Head Video Edit",
+         "client": "Talking Head Video Editing"},
+        {"yt": "rwvzM3mHqxw",
+         "title": "Talking Head Video Edit",
+         "client": "Talking Head Video Editing"},
+        {"drive": "1fUTQYKTPxOvpZpvcVzTLgQRqi6CMNX7f",
+         "title": "Talking Head Video Edit",
+         "client": "Talking Head Video Editing"},
+    ],
     "performance-ads": [
         {"drive": "1UuNggPY_suRlgu6iUXueW2_9SqfmMPn0",
          "title": "Performance Content Edit",
