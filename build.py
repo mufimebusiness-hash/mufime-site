@@ -310,6 +310,12 @@ VIDEOS = {
         {"yt": "OVsp_p7oRCI",
          "title": "Educational Explainer Edit",
          "client": "Educational Content"},
+        {"yt": "kJVuZxYElec",
+         "title": "Educational Explainer Edit",
+         "client": "Educational Content"},
+        {"yt": "EmQtPZLEtqE",
+         "title": "Educational Explainer Edit",
+         "client": "Educational Content"},
     ],
     "b2b-finance-ai": [
         {"drive": "1gdJX1qV5exjcY16V4OSGC5dCGP2mBCdO",
