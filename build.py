@@ -324,21 +324,15 @@ VIDEOS = {
          "client": "Brand & Ad Films"},
     ],
     "youtube-shorts-ig-reels": [
-        {"drive": "19w4bt19n-Emw_AE_VGz9VZK91F2ZDBFF",
-         "title": "Short-Form Edit",
-         "client": "Client"},
         {"drive": "1nP97KM51Sk-eMnJaWbaTMu5g93pKyPcV",
          "title": "Short-Form Edit",
          "client": "Client"},
-        {"drive": "1Xu4TQUe6hZ5WMDVtf3JujSP8oiCvObF2",
+        {"drive": "1BAM5FxBfOUUH94zh_pQcwtvlZfySDqqV",
          "title": "Short-Form Edit",
          "client": "Client"},
-        {"yt": "TTantiiXvn8",
-         "title": "Shafiq Uncle and the Dunning-Kruger Effect",
-         "client": "Mufime"},
-        {"yt": "d-6JZxQZpCk",
-         "title": "Honda Nissan Merger: Bold Move or Nissan's Downfall?",
-         "client": "eTechvolution"},
+        {"drive": "1c4KozPrXRPJ49eqaJHszxk4cLbil_wke",
+         "title": "Short-Form Edit",
+         "client": "Client"},
     ],
     "story-driven-youtube": [
         {"yt": "-Zza4aA9z90",
@@ -399,9 +393,10 @@ def build_service(slug, name, desc, cat):
     prefix = slug.upper().replace("-", "_")[:12]
     vids = VIDEOS.get(slug, [])
     wide = slug not in ("youtube-shorts-ig-reels", "performance-ads")
+    slot_count = len(vids) if vids else 6
     slots = "\n".join(
         slot(prefix, i, cat, wide=wide, video=vids[i - 1] if i <= len(vids) else None)
-        for i in range(1, max(6, len(vids)) + 1))
+        for i in range(1, slot_count + 1))
     body = f"""
 <section class="page-hero">
   <div class="wrap">
