@@ -507,7 +507,7 @@ def build_process(slug, name, num, desc, steps):
           head(f"{name}: Mufime", desc, f"process/{slug}.html") + NAV + body + FOOTER)
 
 
-HIDDEN_FROM_LISTING = {"advanced-post-production", "sound-design"}
+HIDDEN_FROM_LISTING = {"advanced-post-production", "sound-design", "color-finishing"}
 
 
 def build_services_hub():
