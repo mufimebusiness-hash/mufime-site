@@ -335,6 +335,17 @@ VIDEOS = {
          "title": "Brand & Ad Film Edit",
          "client": "Brand & Ad Films"},
     ],
+    "sales-videos-vsl": [
+        {"drive": "1x-_LMfA7QUh3dbspbyJFC7qyv7JQq4U5",
+         "title": "Sales Video Edit",
+         "client": "Sales Videos (VSLs)"},
+        {"drive": "1gAJJFt9pkL_HinPCj1TbX1nnX4YTwfdc",
+         "title": "Sales Video Edit",
+         "client": "Sales Videos (VSLs)"},
+        {"drive": "1qeKZgxrcdVOYI-4_hxflIMWsHrZfpMDB",
+         "title": "Sales Video Edit",
+         "client": "Sales Videos (VSLs)"},
+    ],
     "youtube-shorts-ig-reels": [
         {"drive": "1nP97KM51Sk-eMnJaWbaTMu5g93pKyPcV",
          "title": "Short-Form Edit",
