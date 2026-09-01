@@ -205,13 +205,11 @@ SERVICES = [
     ("tech-explainers",          "Tech Explainers",          "Complex ideas and products broken down into clean, easy-to-follow videos.", "Explainer"),
     ("educational-content",      "Educational Content",      "Concepts taught clearly on screen: structured, paced and visualised so ideas actually land.", "Educational"),
     ("tech-reviews-unboxings",   "Tech Reviews &amp; Unboxings", "Reviews, unboxings and tech coverage edited with pace and polish.", "Review"),
-    ("true-crime-storytelling",  "Mystery Videos",           "Tension-building edits, pacing and sound design that keep viewers on edge.", "Mystery"),
+    ("true-crime-storytelling",  "Investigative Storytelling", "Tension-building edits, pacing and sound design that keep viewers on edge.", "Investigative"),
     ("founder-business-channels","Founder &amp; Business Channels", "Consistent, on-brand editing for founders and creators growing a channel.", "Founder"),
     ("sales-videos-vsl",         "Sales Videos (VSLs)",      "Persuasion-first edits built to turn viewers into customers.", "VSL"),
-    ("b2b-finance-ai",           "B2B, Finance &amp; AI",    "Credible, professional editing for brands in finance, AI and B2B.", "B2B"),
-    ("real-estate-video-editing","Real Estate Video Editing","Listing videos and property tours edited to sell the space, not just show it.", "Real Estate"),
     ("brand-ad-films",           "Brand &amp; Ad Films",     "Concept-to-cut brand films and paid ad creative built to drive action.", "Brand"),
-    ("podcast-talking-head",     "Podcast &amp; Talking Head", "Full episode edits and scroll-stopping clips cut from raw interview footage.", "Podcast"),
+    ("podcast-talking-head",     "Talking Head Video Editing", "Full episode edits and scroll-stopping clips cut from raw interview footage.", "Talking Head"),
     ("color-finishing",          "Colour &amp; Finishing",   "Grading and final polish that gives every deliverable a consistent, premium look.", "Finishing"),
 ]
 
@@ -317,11 +315,6 @@ VIDEOS = {
          "title": "Educational Explainer Edit",
          "client": "Educational Content"},
     ],
-    "b2b-finance-ai": [
-        {"drive": "1gdJX1qV5exjcY16V4OSGC5dCGP2mBCdO",
-         "title": "Business Explainer Edit",
-         "client": "B2B, Finance & AI"},
-    ],
     "saas-product-demos": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
          "title": "SaaS Product Demo Edit",
@@ -337,14 +330,14 @@ VIDEOS = {
     ],
     "true-crime-storytelling": [
         {"drive": "16CYtBOD_Rb9NmcA2YuFnv8LbmEL0eml9",
-         "title": "Mystery Video Edit",
-         "client": "Mystery Videos"},
+         "title": "Investigative Storytelling Edit",
+         "client": "Investigative Storytelling"},
         {"drive": "1KXtwZUP-IzLULcWECPM3Ca9y3D2a9QXy",
-         "title": "Mystery Video Edit",
-         "client": "Mystery Videos"},
+         "title": "Investigative Storytelling Edit",
+         "client": "Investigative Storytelling"},
         {"drive": "1hh10_qzSeyBY0MdPPuMm0l0XM_fEnPK5",
-         "title": "Mystery Video Edit",
-         "client": "Mystery Videos"},
+         "title": "Investigative Storytelling Edit",
+         "client": "Investigative Storytelling"},
     ],
     "sales-videos-vsl": [
         {"drive": "1x-_LMfA7QUh3dbspbyJFC7qyv7JQq4U5",
