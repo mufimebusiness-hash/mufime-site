@@ -290,6 +290,9 @@ VIDEOS = {
         {"drive": "1TlDMxllf3Z6Pv-cFLuIoFTz4WIj-S8X2",
          "title": "Motion Graphics Edit",
          "client": "Motion Graphics"},
+        {"drive": "1VUhWv8eCPZss5wu4LT2ouv8LiDCJlpit",
+         "title": "Motion Graphics Edit",
+         "client": "Motion Graphics"},
     ],
     "tech-explainers": [
         {"drive": "1Ep7Cbn2IKb1lg_SE260U-ZR23ZqNFbb7",
